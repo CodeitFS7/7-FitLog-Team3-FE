@@ -37,6 +37,24 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("../assets/fonts/ROKAFSans/woff2/ROKAFSansBold.woff2")
+      format("woff2"),
+    url("../assets/fonts/ROKAFSans/woff/ROKAFSansBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("../assets/fonts/ROKAFSans/woff2/ROKAFSansMedium.woff2")
+      format("woff2"),
+    url("../assets/fonts/ROKAFSans/woff/ROKAFSansMedium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
 body {
   font-family: "Pretednard";
 }
@@ -45,4 +63,19 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+:root {
+  --brand-brand: #5d6a7f;
+  --bg-bg: #f0f4fa;
+  --white: #fff;
+  --gray-100: #eeeeee;
+  --gray-200: #dddddd;
+  --gray-300: #818181;
+  --black-black: #414141;
+
+  /* error 색상 */
+  --red-error: #f74747;
+  --red-red: #f50e0e;
+  --red-error-bg: #ffa3a5;
 }
