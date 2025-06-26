@@ -1,8 +1,8 @@
 .emojiValueDisplayContainer {
   display: flex;
   padding: 6px 8px;
-  width: fit-content;
   height: fit-content;
+  justify-content: center;
   align-items: center;
   gap: 5px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -18,4 +18,8 @@
   font-size: 12px;
   font-weight: 400;
   color: var(--white);
+}
+
+.clickable {
+  cursor: pointer;
 }
