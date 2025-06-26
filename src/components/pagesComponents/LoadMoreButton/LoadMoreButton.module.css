@@ -1,0 +1,11 @@
+.loadMoreButton {
+  display: flex;
+  padding: 17px 119px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid rgba(89, 115, 156, 0.5);
+  background-color: #fff;
+  width: fit-content;
+  align-self: center;
+}
