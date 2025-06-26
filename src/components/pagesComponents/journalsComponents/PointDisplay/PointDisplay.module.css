@@ -1,0 +1,37 @@
+.pointDisplayContainer {
+  display: flex;
+  padding: 4px 8px;
+  height: fit-content;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 50px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+}
+
+/* Light Mode일 때 오버라이드될 스타일 */
+.lightMode {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: var(--brand-brand);
+  border-color: var(--brand-brand);
+  border: 0.5px solid var(--brand-brand);
+}
+
+.emoji {
+  font-size: 10px;
+}
+
+.value {
+  font-family: "Pretendard";
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.unit {
+  font-family: "Pretendard";
+  font-size: 10px;
+  font-weight: 400;
+}
