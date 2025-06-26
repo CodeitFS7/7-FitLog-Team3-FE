@@ -1,0 +1,83 @@
+.journalCardContainer {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 250px;
+  padding: 30px 35px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: var(--card-border-color);
+  background-color: gray; /*배경 수정 필요!*/
+  color: var(--card-base-color);
+  justify-content: space-around;
+
+  /* 라이트 모드별로 바뀔 색상 변수를 정의합니다. */
+  --card-base-color: var(--brand-brand);
+  --card-border-color: rgba(65, 65, 65, 0.1);
+  --card-text-date-color: rgba(93, 106, 127, 0.6);
+  --card-text-title-color: #464f5f;
+  --card-text-nickname-color: #5e7299;
+  --card-text-description-color: #5e5e5e;
+}
+
+.darkMode {
+  --card-base-color: #d2d2d2;
+  --card-border-color: rgba(255, 255, 255, 0.2);
+  --card-text-date-color: #eee;
+  --card-text-title-color: #ffffff;
+  --card-text-nickname-color: #eee;
+  --card-text-description-color: #fff;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.topRightArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.date {
+  font-family: "Pretendard";
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--card-text-date-color);
+}
+
+.pointDisplayContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.title {
+  font-family: "Pretendard";
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--card-text-title-color);
+}
+
+.nicknameContainer {
+  font-family: "Pretendard";
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.nickname {
+  font-family: "Pretendard";
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--card-text-nickname-color);
+}
+
+.description {
+  font-family: "Pretendard";
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 10px;
+  color: var(--card-text-description-color);
+}

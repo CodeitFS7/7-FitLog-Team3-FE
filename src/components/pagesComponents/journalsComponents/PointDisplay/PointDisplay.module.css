@@ -16,8 +16,7 @@
 .lightMode {
   background-color: rgba(255, 255, 255, 0.5);
   color: var(--brand-brand);
-  border-color: var(--brand-brand);
-  border: 0.5px solid var(--brand-brand);
+  border: 1px solid rgba(65, 65, 65, 0.3);
 }
 
 .emoji {
