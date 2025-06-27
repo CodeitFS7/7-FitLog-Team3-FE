@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import JournalsPost from "./pages/journalsPost";
-import { MainPage } from "./pages/MainPage";
+import { MainPage } from "./pages/MainPage/MainPage.jsx";
 import RoutinesDetail from "./pages/routinesDetail";
 import { Routine } from "./pages/Routine.jsx";
 import { PATH } from "../utils/path.js";

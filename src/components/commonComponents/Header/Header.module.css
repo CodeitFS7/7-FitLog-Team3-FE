@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 170px; /*기존 패딩은 20px 170*/
-  border: 2px solid rgba(93, 106, 127, 0.3);
+  border-bottom: 2px solid rgba(93, 106, 127, 0.3);
   position: fixed;
   height: fit-content;
   top: 0;
@@ -17,6 +17,7 @@
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
 }
 
 .brandImg {

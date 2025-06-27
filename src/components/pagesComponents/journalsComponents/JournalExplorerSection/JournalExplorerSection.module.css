@@ -5,6 +5,7 @@
   padding: 40px;
   border-radius: 5px;
   border: 1px solid #464f5f;
+  width: fit-content;
 }
 
 .sectionTitle {
@@ -15,9 +16,11 @@
 }
 
 .journalCardsGrid {
+  align-self: center;
   display: grid;
   gap: 20px;
   justify-items: center;
+  width: fit-content;
 
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }

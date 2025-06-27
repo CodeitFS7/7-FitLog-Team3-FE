@@ -1,0 +1,28 @@
+.mainPageContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-bg);
+  width: 100%;
+  gap: 94px;
+}
+
+.contentContainer {
+  margin-top: 94px;
+  padding-top: 40px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  min-width: 1023px;
+}
+@media (max-width: 1023px) {
+  .contentContainer {
+    min-width: 676px;
+  }
+}
+@media (max-width: 767px) {
+  .contentContainer {
+    min-width: 440px;
+  }
+}
