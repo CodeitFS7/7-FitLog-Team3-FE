@@ -5,19 +5,22 @@ import background0 from "../../../../assets/images/backgroundJournal/background0
 import background1 from "../../../../assets/images/backgroundJournal/background1.png";
 import background2 from "../../../../assets/images/backgroundJournal/background2.png";
 import background3 from "../../../../assets/images/backgroundJournal/background3.png";
+import { useNavigate } from "react-router-dom";
+import { PATH } from "../../../../../utils/path.js";
 
 const backgroundsData = [
   background0, // index 0: 사진
   background1, // index 1: 사진
   background2, // index 2: 사진
   background3, // index 3: 사진
-  "#FFEB3B", // index 4: 노란색 (예시 색상)
-  "#E0F7FA", // index 5: 하늘색 (예시 색상)
-  "#FFCCBC", // index 6: 살구색 (예시 색상)
-  "#DCEDC8", // index 7: 연두색 (예시 색상)
+  "#FCF4DD", // index 4: 노란색
+  "#DAEAF6", // index 5: 하늘색
+  "#FCE1E4", // index 6: 살구색
+  "#DDEDEA", // index 7: 연두색
 ];
 export const JournalCard = ({ journal }) => {
   const {
+    id: currentJournalId,
     title,
     nickname,
     description,
@@ -36,10 +39,8 @@ export const JournalCard = ({ journal }) => {
 
   const selectedBackground = backgroundsData[background]; // background prop (0-7)을 인덱스로 사용
 
-  // ⭐⭐⭐ 2. background prop 값에 따라 'currentMode'를 계산합니다. ⭐⭐⭐
   const currentMode = background >= 0 && background <= 3 ? "dark" : "light"; // 0~3은 light, 4~7은 dark
 
-  // ⭐⭐ 3. 동적으로 적용할 style 객체 생성 (배경 사진/색상) ⭐⭐
   const dynamicBackgroundStyles = {};
   if (
     typeof selectedBackground === "string" &&
@@ -50,8 +51,7 @@ export const JournalCard = ({ journal }) => {
     typeof selectedBackground === "string" &&
     (selectedBackground.startsWith("data:image/") ||
       selectedBackground.startsWith("/") ||
-      selectedBackground.endsWith(".png") ||
-      selectedBackground.endsWith(".jpg"))
+      selectedBackground.endsWith(".png"))
   ) {
     dynamicBackgroundStyles.backgroundImage = `url(${selectedBackground})`;
     dynamicBackgroundStyles.backgroundSize = "cover";
@@ -59,12 +59,18 @@ export const JournalCard = ({ journal }) => {
     dynamicBackgroundStyles.backgroundRepeat = "no-repeat";
   }
 
+  const navigate = useNavigate();
+  const handleCardClick = () => {
+    navigate(PATH.journal.details(currentJournalId));
+  };
+
   return (
     <section
       className={`${styles.journalCardContainer} ${
         currentMode === "dark" ? styles.darkMode : ""
       }`}
       style={dynamicBackgroundStyles}
+      onClick={handleCardClick}
     >
       <div className={styles.contentContainer}>
         <div className={styles.topRightArea}>

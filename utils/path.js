@@ -2,7 +2,12 @@ export const PATH = {
   index() {
     return "/";
   },
-  createJournal() {
-    return "/createJournal";
+  journal: {
+    create() {
+      return "/createJournal";
+    },
+    details(journalId) {
+      return `/journals/${journalId}`;
+    },
   },
 };

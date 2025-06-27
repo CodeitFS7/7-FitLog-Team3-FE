@@ -67,7 +67,6 @@ export const JournalExplorerSection = () => {
 
   // 더보기 버튼 표시 여부 (현재 페이지의 저널 수가 전체 저널 수보다 적을 때)
   const hasMore = journals.length < totalCount;
-
   return (
     <section className={styles.journalExplorerSection}>
       <h2 className={styles.sectionTitle}>운동일지 둘러보기</h2>

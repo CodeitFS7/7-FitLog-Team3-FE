@@ -7,9 +7,9 @@
   border-radius: 10px;
   border: 1px solid;
   border-color: var(--card-border-color);
-  background-color: gray; /*배경 수정 필요!*/
   color: var(--card-base-color);
   justify-content: space-around;
+  cursor: pointer;
 
   /* 라이트 모드별로 바뀔 색상 변수를 정의합니다. */
   --card-base-color: var(--brand-brand);
