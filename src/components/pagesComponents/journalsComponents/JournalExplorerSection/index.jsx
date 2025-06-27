@@ -3,7 +3,7 @@ import styles from "./JournalExplorerSection.module.css";
 import { getJournalsList } from "../../../../api/journals/journalsApi.js";
 import { JournalSearchFilter } from "../JournalSearchFilter/index.jsx";
 import { JournalCard } from "../JournalCard/index.jsx";
-import { LoadMoreButton } from "../../LoadMoreButton/index.jsx";
+import { LoadMoreButton } from "../LoadMoreButton/index.jsx";
 export const JournalExplorerSection = () => {
   const [journals, setJournals] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
