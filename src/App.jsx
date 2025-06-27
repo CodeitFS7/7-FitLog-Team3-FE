@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import JournalsPost from "./pages/journalsPost";
+import JournalsPost from "./pages/JournalsPost.jsx";
 import { MainPage } from "./pages/MainPage/MainPage.jsx";
-import RoutinesDetail from "./pages/routinesDetail";
-import { Routine } from "./pages/Routine.jsx";
+import RoutinesDetail from "./pages/RoutinesDetail.jsx";
+import RoutinesHome from "./pages/routinesHome.jsx";
 import { PATH } from "../utils/path.js";
 import "./css/style.css";
 import "./css/reset.css";
@@ -15,13 +15,12 @@ function App() {
         <Route path={PATH.journal.create()} element={<JournalsPost />} />
         <Route
           path={PATH.journal.details(":journalId")}
-          element={<Routine />}
+          element={<RoutinesHome />}
         />
         {/* 루틴 상세 페이지 */}
         <Route path="/routines/:journalId" element={<RoutinesDetail />} />
       </Routes>
     </BrowserRouter>
-
   );
 }
 
