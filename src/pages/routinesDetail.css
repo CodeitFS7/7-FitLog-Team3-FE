@@ -6,23 +6,23 @@
   width: 100%;
   min-height: 100vh;
   background-color: #f3f6fb;
-  padding: 2.5rem 1rem;
+  padding: 40px 16px;
 }
 
 .routine-wrapper {
   width: 100%;
   max-width: 640px;
   background-color: white;
-  border-radius: 1rem;
+  border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
+  padding: 24px;
 }
 
 .routine-box {
   background-color: #fafbfc;
-  border-radius: 0.75rem;
+  border-radius: 12px;
   border: 1px solid #e2e8f0;
-  padding: 1.5rem;
+  padding: 24px;
 }
 
 /* Header */
@@ -30,16 +30,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .routine-title {
-  font-size: 1.125rem;
+  font-size: 18px;
   font-weight: 600;
 }
 
 .edit-button {
-  font-size: 0.75rem;
+  font-size: 12px;
   text-decoration: underline;
   color: #4b5563;
   cursor: pointer;
@@ -52,7 +52,7 @@
 /* Empty */
 .routine-empty {
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #9ca3af;
 }
 
@@ -60,14 +60,14 @@
 .routine-list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 12px;
 }
 
 .routine-item {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  padding: 8px 16px;
+  border-radius: 8px;
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -83,25 +83,25 @@
 
 /* Input */
 .routine-input-group {
-  margin-top: 1.5rem;
+  margin-top: 24px;
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .routine-input {
   flex: 1;
   border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.875rem;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 14px;
 }
 
 .routine-add-button {
   background-color: #2563eb;
   color: white;
-  padding: 0.25rem 1rem;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
+  padding: 4px 16px;
+  border-radius: 6px;
+  font-size: 14px;
   cursor: pointer;
   border: none;
 }
@@ -113,15 +113,15 @@
 /* Responsive */
 @media (max-width: 640px) {
   .routine-title {
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   .routine-item {
-    font-size: 0.75rem;
+    font-size: 12px;
   }
 
   .routine-input,
   .routine-add-button {
-    font-size: 0.75rem;
+    font-size: 12px;
   }
 }
