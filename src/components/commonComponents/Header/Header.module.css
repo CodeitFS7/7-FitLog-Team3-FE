@@ -1,0 +1,31 @@
+.headerContainer {
+  background-color: var(--bg-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 170px; /*기존 패딩은 20px 170*/
+  border: 2px solid rgba(93, 106, 127, 0.3);
+  position: fixed;
+  height: fit-content;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.brandLogoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandImg {
+  height: 70px;
+}
+
+.logo {
+  color: #464f5f;
+  font-family: "ROKAF Sans";
+  font-size: 35px;
+  font-weight: 600;
+}

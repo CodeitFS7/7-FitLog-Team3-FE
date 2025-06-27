@@ -12,8 +12,9 @@
 }
 
 .medium {
-  width: 300px;
-  height: 58px;
+  /*기존은 300px 58px*/
+  width: 290px;
+  height: 50px;
   font-weight: 500;
 }
 
