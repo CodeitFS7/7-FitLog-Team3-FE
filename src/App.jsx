@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import JournalsPost from "./pages/journalsPost";
-import MainPage from "./pages/MainPage";
+import { MainPage } from "./pages/MainPage";
 import RoutinesDetail from "./pages/routinesDetail";
-import PATH from "../utils/path.js";
+import { PATH } from "../utils/path.js";
 import "./css/style.css";
 import "./css/reset.css";
 

@@ -1,6 +1,6 @@
 const BASE_URL = "https://fitlog-server-o04e.onrender.com/routines";
 
-// ✅ 루틴 목록 가져오기 (journalId 기준)
+//  루틴 목록 가져오기 (journalId 기준)
 export const getRoutinesByJournalId = async (journalId) => {
   try {
     const res = await fetch(`${BASE_URL}?journalId=${journalId}`);
@@ -14,7 +14,7 @@ export const getRoutinesByJournalId = async (journalId) => {
   }
 };
 
-// ✅ 루틴 추가하기
+//  루틴 추가하기
 export const createRoutine = async (journalId, newRoutine) => {
   try {
     const res = await fetch(`${BASE_URL}`, {
@@ -35,7 +35,7 @@ export const createRoutine = async (journalId, newRoutine) => {
   }
 };
 
-// ✅ 루틴 삭제하기
+//  루틴 삭제하기
 export const deleteRoutine = async (routineId) => {
   try {
     const res = await fetch(`${BASE_URL}/${routineId}`, {
