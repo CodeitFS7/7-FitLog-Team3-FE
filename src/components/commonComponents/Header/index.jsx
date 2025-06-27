@@ -9,11 +9,10 @@ import { PATH } from "../../../../utils/path.js";
  * `padding-top` 또는 `margin-top` 94px을 주어야 헤더에 가려지지 않습니다.
  */
 export const Header = () => {
-  const navigate = useNavigate(); // ⭐⭐ useNavigate 훅 사용 ⭐⭐
+  const navigate = useNavigate();
 
-  // '운동일지 만들기' 버튼 클릭 시 호출될 함수
   const handleCreateJournalClick = () => {
-    navigate(PATH.createJournal()); // ⭐⭐ PATH.journalsPost() 경로로 이동 ⭐⭐
+    navigate(PATH.journal.create());
   };
 
   return (
