@@ -7,23 +7,105 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/pagesComponets/routinesComponents/routinesHeader/routineHeader.jsx";
 import RoutineTable from "../components/pagesComponets/routinesComponents/routinesTable/routineTable.jsx";
-
+import { RoutinesTable } from "../components/pagesComponents/routinesComponents/RoutinesTable/index.jsx";
 function RoutinesHome() {
   const journalTitle = "운동 일지 이름";
   const nickname = "닉네임";
   const intro = "소개";
   const weekDays = ["월", "화", "수", "목", "금", "토", "일"];
   const [habitList, setHabitList] = useState([]);
-
-  useEffect(() => {
-    fetch("https://fitlog-server-o04e.onrender.com/")
-      .then((res) => res.json())
-      .then((data) => setHabitList(data))
-      .catch((err) => console.error(err));
-  }, []);
+  const routines = [
+    {
+      id: "df148f96-96e0-41c5-99dd-ea9ab05c526e",
+      title: "바벨 스쿼트 5세트",
+      createdAt: "2025-06-28T05:54:47.836Z",
+      updatedAt: "2025-06-28T05:54:47.836Z",
+      journalId: "23ee39bc-8d23-4683-aa7f-eba6ed47a603",
+      weeklyCompletion: {
+        MON: false,
+        TUE: false,
+        WED: false,
+        THU: false,
+        FRI: false,
+        SAT: false,
+        SUN: false,
+      },
+    },
+    {
+      id: "aa5998c3-1fda-4cbf-8e57-75c7db04d821",
+      title: "데드리프트 3세트",
+      createdAt: "2025-06-28T05:54:58.673Z",
+      updatedAt: "2025-06-28T05:54:58.673Z",
+      journalId: "23ee39bc-8d23-4683-aa7f-eba6ed47a603",
+      weeklyCompletion: {
+        MON: false,
+        TUE: false,
+        WED: false,
+        THU: false,
+        FRI: false,
+        SAT: false,
+        SUN: false,
+      },
+    },
+    {
+      id: "059e7b76-2eb1-4e76-beef-f0fa9ae16d9d",
+      title: "오버헤드 프레스 4세트",
+      createdAt: "2025-06-28T05:55:07.804Z",
+      updatedAt: "2025-06-28T05:55:07.804Z",
+      journalId: "23ee39bc-8d23-4683-aa7f-eba6ed47a603",
+      weeklyCompletion: {
+        MON: false,
+        TUE: false,
+        WED: false,
+        THU: false,
+        FRI: false,
+        SAT: false,
+        SUN: false,
+      },
+    },
+    {
+      id: "367730ca-596f-4816-80f1-27554641d162",
+      title: "풀업 3세트 (최대 반복)",
+      createdAt: "2025-06-28T05:55:34.870Z",
+      updatedAt: "2025-06-28T05:55:34.870Z",
+      journalId: "23ee39bc-8d23-4683-aa7f-eba6ed47a603",
+      weeklyCompletion: {
+        MON: false,
+        TUE: false,
+        WED: false,
+        THU: false,
+        FRI: false,
+        SAT: false,
+        SUN: false,
+      },
+    },
+    {
+      id: "721a92aa-c522-441e-b734-b321841d7824",
+      title: "버피 테스트: 3세트 (10회)",
+      createdAt: "2025-06-28T05:55:52.574Z",
+      updatedAt: "2025-06-28T05:55:52.574Z",
+      journalId: "23ee39bc-8d23-4683-aa7f-eba6ed47a603",
+      weeklyCompletion: {
+        MON: false,
+        TUE: false,
+        WED: false,
+        THU: false,
+        FRI: false,
+        SAT: false,
+        SUN: false,
+      },
+    },
+  ];
+  // useEffect(() => {
+  //   fetch("https://fitlog-server-o04e.onrender.com/")
+  //     .then((res) => res.json())
+  //     .then((data) => setHabitList(data))
+  //     .catch((err) => console.error(err));
+  // }, []);
 
   return (
     <div>
+      <RoutinesTable routines={routines} />
       <div>
         <Link to="/RoutinesDetail">
           <button>오늘의 습관</button>

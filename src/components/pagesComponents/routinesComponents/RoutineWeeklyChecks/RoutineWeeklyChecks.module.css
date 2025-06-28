@@ -1,0 +1,55 @@
+.routineRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.routineTitle {
+  width: 200px;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-weight: 700;
+  color: #414141;
+  text-align: right;
+  margin: 21px 24px;
+  flex-shrink: 0;
+}
+
+.stampGroup {
+  display: flex;
+}
+
+.checkIconContainer {
+  width: 36px;
+  height: 36px;
+  border-radius: 50px;
+  margin: 14px 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.incompleteBackgroundCell {
+  background-color: #eee;
+}
+.mon {
+  background-color: #ffeb3b;
+} /* 월요일 (예시 노란색) */
+.tue {
+  background-color: #e0f7fa;
+} /* 화요일 (예시 하늘색) */
+.wed {
+  background-color: #ffccbc;
+} /* 수요일 (예시 살구색) */
+.thu {
+  background-color: #dcedc8;
+} /* 목요일 (예시 연두색) */
+.fri {
+  background-color: #add8e6;
+} /* 금요일 (예시 연한 파랑) */
+.sat {
+  background-color: #90ee90;
+} /* 토요일 (예시 연한 녹색) */
+.sun {
+  background-color: #f08080;
+} /* 일요일 (예시 연한 빨강) */

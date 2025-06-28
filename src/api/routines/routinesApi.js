@@ -51,3 +51,26 @@ export const deleteRoutine = async (routineId) => {
     throw err;
   }
 };
+
+// 루틴 체크 기록 가져오기
+export const getWeeklyRoutinesStatus = async (journalId, dateString) => {
+  const url = new URL(`${BASE_URL}/weeklyStatus`);
+  url.searchParams.append("journalId", journalId);
+  url.searchParams.append("date", dateString);
+  try {
+    const res = await fetch(url.toString(), {
+      method: "GET",
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP 상태 ${res.status}`);
+    }
+
+    const data = await res.json();
+
+    return data.routines;
+  } catch (err) {
+    console.error("루틴 체크리스트 조회 실패 : ", err.message);
+    throw err;
+  }
+};

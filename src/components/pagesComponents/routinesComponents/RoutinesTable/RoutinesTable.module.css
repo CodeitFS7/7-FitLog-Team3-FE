@@ -1,0 +1,65 @@
+.routineTableContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid #464f5f;
+  background: #fff;
+  width: 100%;
+}
+.title {
+  color: var(--black-black_414141, #414141);
+  text-align: left;
+  font-family: "Pretendard";
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.tableHeader {
+  display: flex;
+}
+.blanckCell {
+  width: 200px;
+  margin: 21px 24px;
+}
+.headerCell {
+  width: 36px;
+  height: 36px;
+  margin: 14px 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-weight: 600;
+  color: #59739c;
+}
+.routinesList {
+  display: flex;
+  flex-direction: column;
+}
+.loadingMessage {
+  color: #5e5e5e;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 20px;
+  font-weight: 400;
+  padding: 10px;
+}
+
+.errorMessage {
+  color: #5e5e5e;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 20px;
+  font-weight: 400;
+  padding: 10px;
+}
+.noroutineMessage {
+  color: #5e5e5e;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 20px;
+  font-weight: 400;
+  padding: 10px;
+}
