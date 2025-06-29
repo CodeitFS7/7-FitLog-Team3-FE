@@ -10,14 +10,16 @@ import { PATH } from "../../../../utils/path.js";
  */
 export const Header = () => {
   const navigate = useNavigate();
-
+  const handleBrandLogoClick = () => {
+    navigate(PATH.index());
+  };
   const handleCreateJournalClick = () => {
     navigate(PATH.journal.create());
   };
 
   return (
     <header className={styles.headerContainer}>
-      <div className={styles.brandLogoContainer}>
+      <div onClick={handleBrandLogoClick} className={styles.brandLogoContainer}>
         <img src={brandImg} className={styles.brandImg} />
         <h1 className={styles.logo}>Fit Log</h1>
       </div>
