@@ -6,12 +6,11 @@ import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./JournalDetailContent.module.css";
 import { getExercisePointByJournalId } from "../../../../api/exerciseLogs/exerciseLogsApi.js";
-import { LinkButton } from "../../../commonComponents/LinkButton/index.jsx";
 import { PATH } from "../../../../../utils/path.js";
 import { deleteJournal } from "../../../../api/journals/journalsApi.js";
 import PasswordModalContainer from "../../../commonComponents/Modal/PasswordModalContainer.jsx";
-// import verifyJournalPassword from "../../../commonComponents/Modal/PasswordModalContainer.jsx"; // ❌ 이 줄을 삭제합니다.
 import arrowIcon from "../../../../assets/icons/ic_arrow_right.svg";
+
 export const JournalDetailContent = ({ journalId }) => {
   const [journal, setJournal] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -51,14 +50,22 @@ export const JournalDetailContent = ({ journalId }) => {
   }, [fetchJournalData]);
 
   const handleProtectedActionClick = useCallback((actionType, path = null) => {
-    console.log("버튼 클릭됨:", actionType, "path:", path); // 이 줄을 추가
+    console.log("버튼 클릭됨:", actionType, "path:", path);
     setActionToPerform(actionType);
     setTargetPath(path);
     setShowPasswordModal(true);
   }, []);
 
-  const handleShareClick = useCallback(() => {
-    alert("공유하기 기능은 나중에 구현됩니다.");
+  const handleShareClick = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      alert(
+        "이 운동일지 링크가 클립보드에 복사되었습니다! 친구들에게 공유해보세요."
+      );
+    } catch (err) {
+      console.error("클립보드 복사 실패:", err);
+      alert("링크 복사에 실패했습니다.");
+    }
   }, []);
 
   const handleVerificationSuccess = useCallback(async () => {
