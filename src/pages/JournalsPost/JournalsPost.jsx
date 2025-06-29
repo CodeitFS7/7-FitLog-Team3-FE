@@ -1,21 +1,21 @@
 // 운동일지 생성 페이지
 
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import styles from '../css/journalsPost.module.css';
-import icBgSelected from '../assets/ic_bg_selected.svg';
-import { Header } from "../components/commonComponents/Header";
+import styles from "./JournalsPost.module.css";
+import icBgSelected from "../../assets/icons/ic_bg_selected.svg";
+import { Header } from "../../components/commonComponents/Header";
 
 // 배경 이미지 import
-import img1 from '../assets/alvaro-reyes-zvmZiw3vdsQ-unsplash.png';
-import img2 from '../assets/mikey-harris-kw0z6RyvC0s-unsplash.png';
-import img3 from '../assets/andrew-ridley-jR4Zf-riEjI-unsplash.png';
-import img4 from '../assets/chris-lee-70l1tDAI6rM-unsplash.png';
+import img1 from "../../assets/images/backgroundJournal/background0.png";
+import img2 from "../../assets/images/backgroundJournal/background1.png";
+import img3 from "../../assets/images/backgroundJournal/background2.png";
+import img4 from "../../assets/images/backgroundJournal/background3.png";
 
 // 비밀번호 가림처리 아이콘 import
-import eyeOn from '../assets/icons/eye_on.png';
-import eyeOff from '../assets/icons/eye_off.png';
+import eyeOn from "../../assets/icons/eye_on.png";
+import eyeOff from "../../assets/icons/eye_on.png";
 
 // --- 백엔드와 동일한 유효성 검사 기준 상수화 ---
 const NICKNAME_MIN = 1;
@@ -29,14 +29,14 @@ const PASSWORD_MAX = 15;
 
 // 배경 이미지 목록
 const backgrounds = [
-  { color: '#E1EDDE' },
-  { color: '#FFF1CC' },
-  { color: '#E0F1F5' },
-  { color: '#FDE0E9' },
   { img: img1 },
   { img: img2 },
   { img: img3 },
   { img: img4 },
+  { color: "#FCF4DD" },
+  { color: "#DAEAF6" },
+  { color: "#FCE1E4" },
+  { color: "#DDEDEA" },
 ];
 
 // 비밀번호 영문+숫자 조합 체크 함수
@@ -46,7 +46,7 @@ function isValidPasswordCombination(password) {
 
 // 필수 항목(공백만 입력도 불가) 검사 함수
 function isRequiredString(value) {
-  return typeof value === 'string' && value.trim() !== '';
+  return typeof value === "string" && value.trim() !== "";
 }
 
 // 입력 필드 컴포넌트 (비밀번호 가림처리 지원)
@@ -99,7 +99,9 @@ function BackgroundSelector({ backgrounds, selected, onSelect }) {
         {backgrounds.map((bg, idx) => (
           <div
             key={idx}
-            className={`${styles.backgroundItem} ${selected === idx ? styles.selected : ''}`}
+            className={`${styles.backgroundItem} ${
+              selected === idx ? styles.selected : ""
+            }`}
             style={bg.color ? { background: bg.color } : {}}
             onClick={() => onSelect(idx)}
           >
@@ -107,7 +109,7 @@ function BackgroundSelector({ backgrounds, selected, onSelect }) {
               <img
                 src={bg.img}
                 alt=""
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             )}
             {selected === idx && (
@@ -115,13 +117,13 @@ function BackgroundSelector({ backgrounds, selected, onSelect }) {
                 src={icBgSelected}
                 alt="선택됨"
                 style={{
-                  position: 'absolute',
-                  left: '50%',
-                  top: '50%',
+                  position: "absolute",
+                  left: "50%",
+                  top: "50%",
                   width: 40,
                   height: 40,
-                  transform: 'translate(-50%, -50%)',
-                  pointerEvents: 'none',
+                  transform: "translate(-50%, -50%)",
+                  pointerEvents: "none",
                   zIndex: 2,
                 }}
               />
@@ -142,114 +144,127 @@ function Message({ error, success }) {
 
 // 메인 컴포넌트
 export default function JournalsPost() {
-  const [nickname, setNickname] = useState('');
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordCheck, setPasswordCheck] = useState('');
+  const [nickname, setNickname] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
   const [background, setBackground] = useState(0);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // 입력값별 에러 상태
-  const [nicknameError, setNicknameError] = useState('');
-  const [titleError, setTitleError] = useState('');
-  const [descriptionError, setDescriptionError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [passwordCheckError, setPasswordCheckError] = useState('');
+  const [nicknameError, setNicknameError] = useState("");
+  const [titleError, setTitleError] = useState("");
+  const [descriptionError, setDescriptionError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [passwordCheckError, setPasswordCheckError] = useState("");
 
   // 입력값 변경 핸들러 (백엔드 기준 min/max 및 조합 체크 + 필수항목)
   const handleNicknameChange = (e) => {
     const value = e.target.value;
     setNickname(value);
-    setError('');
+    setError("");
     if (!isRequiredString(value)) {
-      setNicknameError('닉네임은 필수 항목입니다.');
+      setNicknameError("닉네임은 필수 항목입니다.");
     } else if (value.length < NICKNAME_MIN || value.length > NICKNAME_MAX) {
-      setNicknameError(`닉네임은 ${NICKNAME_MIN}자 이상 ${NICKNAME_MAX}자 이하로 입력해 주세요.`);
+      setNicknameError(
+        `닉네임은 ${NICKNAME_MIN}자 이상 ${NICKNAME_MAX}자 이하로 입력해 주세요.`
+      );
     } else {
-      setNicknameError('');
+      setNicknameError("");
     }
   };
   const handleTitleChange = (e) => {
     const value = e.target.value;
     setTitle(value);
-    setError('');
+    setError("");
     if (!isRequiredString(value)) {
-      setTitleError('운동일지 이름은 필수 항목입니다.');
+      setTitleError("운동일지 이름은 필수 항목입니다.");
     } else if (value.length < TITLE_MIN || value.length > TITLE_MAX) {
-      setTitleError(`운동일지 이름은 ${TITLE_MIN}자 이상 ${TITLE_MAX}자 이하로 입력해 주세요.`);
+      setTitleError(
+        `운동일지 이름은 ${TITLE_MIN}자 이상 ${TITLE_MAX}자 이하로 입력해 주세요.`
+      );
     } else {
-      setTitleError('');
+      setTitleError("");
     }
   };
   const handleDescriptionChange = (e) => {
     const value = e.target.value;
     setDescription(value);
-    setError('');
+    setError("");
     if (!isRequiredString(value)) {
-      setDescriptionError('운동일지 소개는 필수 항목입니다.');
-    } else if (value.length < DESCRIPTION_MIN || value.length > DESCRIPTION_MAX) {
-      setDescriptionError(`운동일지 소개는 ${DESCRIPTION_MIN}자 이상 ${DESCRIPTION_MAX}자 이하로 입력해 주세요.`);
+      setDescriptionError("운동일지 소개는 필수 항목입니다.");
+    } else if (
+      value.length < DESCRIPTION_MIN ||
+      value.length > DESCRIPTION_MAX
+    ) {
+      setDescriptionError(
+        `운동일지 소개는 ${DESCRIPTION_MIN}자 이상 ${DESCRIPTION_MAX}자 이하로 입력해 주세요.`
+      );
     } else {
-      setDescriptionError('');
+      setDescriptionError("");
     }
   };
   const handlePasswordChange = (e) => {
     const value = e.target.value;
     setPassword(value);
-    setError('');
+    setError("");
     if (!isRequiredString(value)) {
-      setPasswordError('비밀번호는 필수 항목입니다.');
+      setPasswordError("비밀번호는 필수 항목입니다.");
     } else if (value.length < PASSWORD_MIN || value.length > PASSWORD_MAX) {
-      setPasswordError(`비밀번호는 ${PASSWORD_MIN}자 이상 ${PASSWORD_MAX}자 이하로 입력해 주세요.`);
+      setPasswordError(
+        `비밀번호는 ${PASSWORD_MIN}자 이상 ${PASSWORD_MAX}자 이하로 입력해 주세요.`
+      );
     } else if (!isValidPasswordCombination(value)) {
-      setPasswordError('비밀번호는 영문과 숫자를 모두 포함해야 합니다.');
+      setPasswordError("비밀번호는 영문과 숫자를 모두 포함해야 합니다.");
     } else {
-      setPasswordError('');
+      setPasswordError("");
     }
   };
   const handlePasswordCheckChange = (e) => {
     const value = e.target.value;
     setPasswordCheck(value);
-    setError('');
+    setError("");
     if (!isRequiredString(value)) {
-      setPasswordCheckError('비밀번호 확인은 필수 항목입니다.');
+      setPasswordCheckError("비밀번호 확인은 필수 항목입니다.");
     } else if (value.length < PASSWORD_MIN || value.length > PASSWORD_MAX) {
-      setPasswordCheckError(`비밀번호는 ${PASSWORD_MIN}자 이상 ${PASSWORD_MAX}자 이하로 입력해 주세요.`);
+      setPasswordCheckError(
+        `비밀번호는 ${PASSWORD_MIN}자 이상 ${PASSWORD_MAX}자 이하로 입력해 주세요.`
+      );
     } else if (!isValidPasswordCombination(value)) {
-      setPasswordCheckError('비밀번호는 영문과 숫자를 모두 포함해야 합니다.');
+      setPasswordCheckError("비밀번호는 영문과 숫자를 모두 포함해야 합니다.");
     } else {
-      setPasswordCheckError('');
+      setPasswordCheckError("");
     }
   };
 
   const resetForm = () => {
-    setNickname('');
-    setTitle('');
-    setDescription('');
-    setPassword('');
-    setPasswordCheck('');
+    setNickname("");
+    setTitle("");
+    setDescription("");
+    setPassword("");
+    setPasswordCheck("");
     setBackground(0);
-    setNicknameError('');
-    setTitleError('');
-    setDescriptionError('');
-    setPasswordError('');
-    setPasswordCheckError('');
-    setError('');
+    setNicknameError("");
+    setTitleError("");
+    setDescriptionError("");
+    setPasswordError("");
+    setPasswordCheckError("");
+    setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (loading) return; // 중복 제출 방지
-    setError('');
-    setSuccess('');
+    setError("");
+    setSuccess("");
     setLoading(true);
 
     if (password !== passwordCheck) {
-      setError('비밀번호가 일치하지 않습니다.');
+      setError("비밀번호가 일치하지 않습니다.");
       setLoading(false);
       return;
     }
@@ -261,34 +276,40 @@ export default function JournalsPost() {
       !isRequiredString(description) ||
       !isRequiredString(password) ||
       !isRequiredString(passwordCheck) ||
-      nickname.length < NICKNAME_MIN || nickname.length > NICKNAME_MAX ||
-      title.length < TITLE_MIN || title.length > TITLE_MAX ||
-      description.length < DESCRIPTION_MIN || description.length > DESCRIPTION_MAX ||
-      password.length < PASSWORD_MIN || password.length > PASSWORD_MAX ||
+      nickname.length < NICKNAME_MIN ||
+      nickname.length > NICKNAME_MAX ||
+      title.length < TITLE_MIN ||
+      title.length > TITLE_MAX ||
+      description.length < DESCRIPTION_MIN ||
+      description.length > DESCRIPTION_MAX ||
+      password.length < PASSWORD_MIN ||
+      password.length > PASSWORD_MAX ||
       !isValidPasswordCombination(password) ||
-      passwordCheck.length < PASSWORD_MIN || passwordCheck.length > PASSWORD_MAX ||
+      passwordCheck.length < PASSWORD_MIN ||
+      passwordCheck.length > PASSWORD_MAX ||
       !isValidPasswordCombination(passwordCheck) ||
-      background < 0 || background > 7
+      background < 0 ||
+      background > 7
     ) {
-      setError('모든 항목을 빠짐없이 입력해 주세요.');
+      setError("모든 항목을 빠짐없이 입력해 주세요.");
       setLoading(false);
       return;
     }
     try {
-      await axios.post('https://fitlog-server-o04e.onrender.com/journals', {
+      await axios.post("https://fitlog-server-o04e.onrender.com/journals", {
         nickname,
         title,
         description,
         password,
         background,
       });
-      setSuccess('운동일지가 성공적으로 생성되었습니다!');
+      setSuccess("운동일지가 성공적으로 생성되었습니다!");
       resetForm();
       setTimeout(() => {
         navigate("/"); // 메인페이지로 이동
       }, 1500); // 1.5초 후 이동 (원하는 시간으로 조절)
     } catch (err) {
-      setError(err.response?.data?.message || '생성에 실패했습니다.');
+      setError(err.response?.data?.message || "생성에 실패했습니다.");
     } finally {
       setLoading(false);
     }
@@ -308,7 +329,9 @@ export default function JournalsPost() {
               onChange={handleNicknameChange}
               maxLength={NICKNAME_MAX + 1}
             />
-            {nicknameError && <div className={styles.errorMsg}>{nicknameError}</div>}
+            {nicknameError && (
+              <div className={styles.errorMsg}>{nicknameError}</div>
+            )}
             <InputField
               label="운동일지 이름"
               placeholder="운동일지 이름을 입력해주세요"
@@ -324,7 +347,9 @@ export default function JournalsPost() {
               onChange={handleDescriptionChange}
               maxLength={DESCRIPTION_MAX + 1}
             />
-            {descriptionError && <div className={styles.errorMsg}>{descriptionError}</div>}
+            {descriptionError && (
+              <div className={styles.errorMsg}>{descriptionError}</div>
+            )}
             <BackgroundSelector
               backgrounds={backgrounds}
               selected={background}
@@ -338,7 +363,9 @@ export default function JournalsPost() {
               onChange={handlePasswordChange}
               maxLength={PASSWORD_MAX + 1}
             />
-            {passwordError && <div className={styles.errorMsg}>{passwordError}</div>}
+            {passwordError && (
+              <div className={styles.errorMsg}>{passwordError}</div>
+            )}
             <InputField
               label="비밀번호 확인"
               type="password"
@@ -347,14 +374,16 @@ export default function JournalsPost() {
               onChange={handlePasswordCheckChange}
               maxLength={PASSWORD_MAX + 1}
             />
-            {passwordCheckError && <div className={styles.errorMsg}>{passwordCheckError}</div>}
+            {passwordCheckError && (
+              <div className={styles.errorMsg}>{passwordCheckError}</div>
+            )}
             <Message error={error} success={success} />
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className={styles.submitBtn}
               disabled={loading}
             >
-              {loading ? '등록 중...' : '만들기'}
+              {loading ? "등록 중..." : "만들기"}
             </button>
           </div>
         </form>

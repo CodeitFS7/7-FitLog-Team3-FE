@@ -111,9 +111,7 @@ const RoutineDetail = () => {
             <div className="routine-list">
               {routines.length === 0 ? (
                 <p className="empty-massage">
-                  아직 습관이 없어요
-                  <br />
-                  목록 수정을 눌러 습관을 생성해보세요
+                  아직 습관이 없어요! 목록 수정을 눌러 습관을 생성해보세요
                 </p>
               ) : (
                 <ul>

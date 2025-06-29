@@ -33,23 +33,23 @@
   background-color: #eee;
 }
 .mon {
-  background-color: #ffeb3b;
+  background-color: #e0ffff;
 } /* 월요일 (예시 노란색) */
 .tue {
-  background-color: #e0f7fa;
+  background-color: #b0e0e6;
 } /* 화요일 (예시 하늘색) */
 .wed {
-  background-color: #ffccbc;
+  background-color: #87cefa;
 } /* 수요일 (예시 살구색) */
 .thu {
-  background-color: #dcedc8;
+  background-color: #89cff0;
 } /* 목요일 (예시 연두색) */
 .fri {
-  background-color: #add8e6;
+  background-color: #87ceeb;
 } /* 금요일 (예시 연한 파랑) */
 .sat {
-  background-color: #90ee90;
+  background-color: #0073cf;
 } /* 토요일 (예시 연한 녹색) */
 .sun {
-  background-color: #f08080;
+  background-color: #1e90ff;
 } /* 일요일 (예시 연한 빨강) */

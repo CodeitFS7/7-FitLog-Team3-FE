@@ -2,6 +2,7 @@ import styles from "./RoutinesTable.module.css";
 import { RoutineWeeklyChecks } from "../RoutineWeeklyChecks";
 import { getWeeklyRoutinesStatus } from "../../../../api/routines/routinesApi.js";
 import { useState, useCallback, useEffect } from "react";
+
 export const RoutinesTable = ({ journalId }) => {
   const [routines, setRoutines] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -9,6 +9,9 @@ export const PATH = {
     details(journalId) {
       return `/journals/${journalId}`;
     },
+    edit(journalId) {
+      return `/journals/${journalId}/editJournal`;
+    },
     todayRoutines(journalId) {
       return `/journals/${journalId}/todayRoutines`;
     },

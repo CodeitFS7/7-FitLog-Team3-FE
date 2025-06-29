@@ -79,3 +79,11 @@ body {
   --red-red: #f50e0e;
   --red-error-bg: #ffa3a5;
 }
+
+/* src/index.css */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
