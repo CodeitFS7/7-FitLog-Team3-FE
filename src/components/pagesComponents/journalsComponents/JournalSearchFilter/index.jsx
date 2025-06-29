@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./JournalSearchFilter.module.css"; // CSS 모듈
-import searchIcon from "../../../../assets/images/icons/ic_search.svg";
+import searchIcon from "../../../../assets/icons/ic_search.svg";
 /**
  * 저널 검색 및 정렬 필터 컴포넌트입니다.
  * @param {object} props - 컴포넌트 props
