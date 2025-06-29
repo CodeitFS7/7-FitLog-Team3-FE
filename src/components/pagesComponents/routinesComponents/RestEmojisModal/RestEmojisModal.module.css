@@ -1,0 +1,19 @@
+.modalPortalContainer {
+  position: absolute; /* 또는 fixed 시 scroll 영향 없음 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modalContent {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.closeModalButton {
+  margin-top: 8px;
+}
