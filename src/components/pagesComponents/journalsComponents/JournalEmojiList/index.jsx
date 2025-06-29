@@ -16,29 +16,31 @@ export const JournalEmojiList = ({
   emojis,
   mode = "top",
   displayCount = 3,
+  onEmojiClick,
 }) => {
   // 이모지가 없으면 아무것도 표시 안 함
   if (!emojis || emojis.length === 0) {
     return null;
   }
 
+  const sortedEmojis = [...emojis].sort((a, b) => b.count - a.count);
+
   let emojisToDisplay = [];
 
   switch (mode) {
-    case "top": // 상위 N개
-      emojisToDisplay = emojis.slice(0, displayCount);
+    case "top":
+      emojisToDisplay = sortedEmojis.slice(0, displayCount);
       break;
-    case "all": // 전체
-      emojisToDisplay = emojis;
+    case "all":
+      emojisToDisplay = sortedEmojis;
       break;
-    case "rest": // 나머지 (displayCount 이후)
-      emojisToDisplay = emojis.slice(displayCount);
+    case "rest":
+      emojisToDisplay = sortedEmojis.slice(displayCount);
       break;
-    default: // 정의되지 않은 mode일 경우, 기본값인 'top' (3개)을 따르도록
-      emojisToDisplay = emojis.slice(0, displayCount);
+    default:
+      emojisToDisplay = sortedEmojis.slice(0, displayCount);
       break;
   }
-
   // 만약 rest 모드인데 남은 이모지가 없으면 아무것도 표시 안 함
   if (mode === "rest" && emojisToDisplay.length === 0) {
     return null;
@@ -50,6 +52,7 @@ export const JournalEmojiList = ({
           key={emoji.id}
           emojiType={emoji.id}
           value={emoji.count}
+          onClick={onEmojiClick}
         />
       ))}
     </div>

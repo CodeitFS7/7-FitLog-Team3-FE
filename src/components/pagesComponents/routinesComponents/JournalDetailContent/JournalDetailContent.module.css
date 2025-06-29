@@ -1,0 +1,83 @@
+.detailPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #464f5f;
+  padding: 40px;
+  gap: 25px;
+}
+
+.journalContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+.journalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-family: "Pretendard";
+  font-size: 32px;
+  font-weight: 800;
+  color: #5e5e5e;
+}
+
+.nicknamePoint {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.nickname {
+  color: var(--brand-brand);
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.description {
+  color: #5e5e5e;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.actionButtonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.utilityLinks {
+  display: flex;
+  gap: 16px;
+}
+.utilityLink {
+  color: var(--Nickname, #59739c);
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 500;
+}
+.utilityLinkdelete {
+  color: var(--gray-gray_818181, #818181);
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.utilitySeparator {
+}
+.actionLinkButton {
+  display: flex;
+  gap: 16px;
+}

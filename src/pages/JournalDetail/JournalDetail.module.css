@@ -1,0 +1,10 @@
+.detailPageContainer {
+  background-color: var(--bg-bg);
+}
+
+.mainContentWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 94px;
+  padding: 40px;
+}

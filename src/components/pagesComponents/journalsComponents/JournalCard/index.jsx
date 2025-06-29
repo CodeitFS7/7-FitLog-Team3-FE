@@ -13,10 +13,10 @@ const backgroundsData = [
   background1, // index 1: 사진
   background2, // index 2: 사진
   background3, // index 3: 사진
-  "#FCF4DD", // index 4: 노란색
-  "#DAEAF6", // index 5: 하늘색
-  "#FCE1E4", // index 6: 살구색
-  "#DDEDEA", // index 7: 연두색
+  "#FCF4DD",
+  "#DAEAF6",
+  "#FCE1E4",
+  "#DDEDEA",
 ];
 export const JournalCard = ({ journal }) => {
   const {

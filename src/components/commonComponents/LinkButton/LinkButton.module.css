@@ -1,0 +1,22 @@
+.linkButton {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 16px 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(93, 106, 127, 0.5);
+  background: #fff;
+  color: var(--brand-brand_5D6A7F, #5d6a7f);
+  font-family: "Pretendard";
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  flex-shrink: 0;
+  text-decoration: none;
+  gap: 4px;
+  cursor: pointer;
+}
+.arrowIcon {
+  width: 24px;
+  height: 24px;
+}
