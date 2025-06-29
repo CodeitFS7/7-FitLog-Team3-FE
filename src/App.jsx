@@ -5,7 +5,7 @@ import RoutinesDetail from "./pages/RoutinesDetail.jsx";
 import { JournalDetail } from "./pages/JournalDetail/index.jsx";
 import { ExerciseLogs } from "./pages/ExerciseLogs.jsx";
 import { PATH } from "../utils/path.js";
-import "./css/style.css";
+import "./css/base.css";
 import "./css/reset.css";
 import { EditJournal } from "./pages/EditJournal/index.jsx";
 
