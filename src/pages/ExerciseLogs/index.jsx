@@ -56,11 +56,10 @@ const Controls = ({ time, isRunning, startTimer, stopTimer, resetTimer }) => (
   >
     <button
       className={styles["pause-button"]}
-      onClick={stopTimer}
-      disabled={!isRunning}
-      aria-label="일시정지"
+      onClick={resetTimer}
+      aria-label="리셋"
     >
-      <span style={{ fontSize: "22px" }}>⏸</span>
+      <span style={{ fontSize: "22px" }}>&#8635;</span>
     </button>
     {time < 0 ? ( // 시간이 음수일 때 (초과 시간) "Stop!" 버튼 표시
       <button
@@ -94,14 +93,6 @@ const Controls = ({ time, isRunning, startTimer, stopTimer, resetTimer }) => (
         <span className={styles["play-icon"]}>▶</span> Start!
       </button>
     )}
-    <button
-      className={styles["pause-button"]}
-      onClick={resetTimer}
-      disabled={isRunning} // 타이머가 실행 중일 때는 리셋 버튼 비활성화
-      aria-label="리셋"
-    >
-      <span style={{ fontSize: "22px" }}>&#8635;</span>
-    </button>
   </div>
 );
 
