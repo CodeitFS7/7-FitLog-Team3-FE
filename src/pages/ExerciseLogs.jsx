@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from '../css/ExerciseLogs.module.css';
+import { PointDisplay } from '../components/pagesComponents/journalsComponents/PointDisplay/index.jsx';
+import { getExercisePointByJournalId, updateExercisePointByJournalId } from '../api/exerciseLogs/exerciseLogsApi';
 
 // PointsSection 컴포넌트
 const PointsSection = ({ points }) => (
   <div className={styles['points-section']}>
     <p>현재까지 획득한 포인트</p>
-    <div className={styles['points-display']}>
-      <span className={styles['leaf-icon']}>🌿</span>
-      <span className={styles.points}>{points}P 획득</span>
-    </div>
+    <PointDisplay emoji="🌿" value={points} unit="P 획득" mode="light" />
   </div>
 );
 
@@ -96,6 +95,7 @@ const Toast = ({ toast, successToast, getToastPoint }) => (
 );
 
 export const ExerciseLogs = () => {
+  const { journalId } = useParams();
   const [time, setTime] = useState(25 * 60);
   const [inputMinutes, setInputMinutes] = useState(25);
   const [inputSeconds, setInputSeconds] = useState(0);
@@ -108,9 +108,18 @@ export const ExerciseLogs = () => {
   const prevTimeRef = useRef();
   const [initialMinutes, setInitialMinutes] = useState(25);
   const [initialSeconds, setInitialSeconds] = useState(0);
-  const [points, setPoints] = useState(310); // 임시 포인트 상태
+  const [points, setPoints] = useState(0); // 서버에서 불러온 값으로 초기화
 
   const navigate = useNavigate();
+
+  // 서버에서 포인트 불러오기
+  useEffect(() => {
+    if (journalId) {
+      getExercisePointByJournalId(journalId)
+        .then((exercisePoint) => setPoints(exercisePoint))
+        .catch(() => setPoints(0));
+    }
+  }, [journalId]);
 
   // 타이머 컨트롤
   const startTimer = () => {
@@ -175,7 +184,7 @@ export const ExerciseLogs = () => {
     setInputSeconds(time % 60);
   }, [time]);
 
-  // 성공 토스트 1회만 표시
+  // 성공 토스트 1회만 표시 + 서버에 포인트 반영
   useEffect(() => {
     if (
       prevTimeRef.current !== undefined &&
@@ -187,10 +196,19 @@ export const ExerciseLogs = () => {
       setSuccessToast(true);
       isSuccessRef.current = true;
       setTimeout(() => setSuccessToast(false), 2000);
-      setPoints((prev) => prev + getToastPoint());
+
+      // 클라이언트 포인트 증가
+      setPoints((prev) => {
+        const newPoints = prev + getToastPoint();
+        // 서버에 포인트 반영
+        if (journalId) {
+          updateExercisePointByJournalId(journalId, newPoints).catch(() => {});
+        }
+        return newPoints;
+      });
     }
     prevTimeRef.current = time;
-  }, [time]);
+  }, [time, journalId]);
 
   useEffect(() => {
     return () => {
@@ -228,7 +246,6 @@ export const ExerciseLogs = () => {
             onChange={e => setInputMinutes(Math.max(0, Math.min(180, Number(e.target.value) || 0)))}
             className={styles['timer-set-input']}
             style={{ width: 48, textAlign: 'right' }}
-            // onBlur={handleSaveTimerSetting}  // onBlur 제거!
             onKeyDown={e => {
               if (e.key === 'Enter') handleSaveTimerSetting();
               if (e.key === 'Escape') handleCancelTimerSetting();
@@ -247,7 +264,6 @@ export const ExerciseLogs = () => {
             onChange={e => setInputSeconds(Math.max(0, Math.min(59, Number(e.target.value) || 0)))}
             className={styles['timer-set-input']}
             style={{ width: 48, textAlign: 'right' }}
-            // onBlur={handleSaveTimerSetting}  // onBlur 제거!
             onKeyDown={e => {
               if (e.key === 'Enter') handleSaveTimerSetting();
               if (e.key === 'Escape') handleCancelTimerSetting();
@@ -282,9 +298,9 @@ export const ExerciseLogs = () => {
           <div className={styles['header-right']}>
             <button
               className={styles['icon-button']}
-              onClick={() => navigate('/routinesHome')} // 오늘의 루틴 경로 재설정 필요
+              onClick={() => navigate(`/routines/${journalId}`)}
             >
-              오늘의 루틴 {'>'}
+              오늘의 습관 {'>'}
             </button>
             <button
               className={styles['icon-button']}
