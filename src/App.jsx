@@ -3,7 +3,7 @@ import { JournalsPost } from "./pages/JournalsPost/index.jsx";
 import { MainPage } from "./pages/MainPage/MainPage.jsx";
 import { RoutinesDetail } from "./pages/RoutinesDetail/index.jsx";
 import { JournalDetail } from "./pages/JournalDetail/index.jsx";
-import { ExerciseLogs } from "./pages/ExerciseLogs.jsx";
+import { ExerciseLogs } from "./pages/ExerciseLogs/index.jsx";
 import { UpdateJournal } from "./pages/UpdateJournal/index.jsx";
 import { PATH } from "../utils/path.js";
 import "./css/base.css";
@@ -32,11 +32,8 @@ function App() {
           path={PATH.journal.exerciseLogs(":journalId")}
           element={<ExerciseLogs />}
         />
-        <Route path="/routines/:journalId" element={<RoutinesDetail />} />
-        <Route path="/exerciseLogs" element={<ExerciseLogs />} />
       </Routes>
     </BrowserRouter>
-
   );
 }
 

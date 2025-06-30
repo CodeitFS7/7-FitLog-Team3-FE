@@ -19,18 +19,28 @@ export const getExercisePointByJournalId = async (journalId) => {
   }
 };
 
-export const updateExercisePointByJournalId = async (journalId, newPoints) => {
+export const createExerciseLogAPI = async (journalId, logData) => {
   const url = new URL(`${BASE_URL}/${journalId}`);
   try {
     const res = await fetch(url.toString(), {
-      method: "PUT", // PUT or PATCH
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ SumExercisePoint: newPoints }),
+      method: "POST", // ⭐ 메소드 POST
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(logData),
     });
-    if (!res.ok) throw new Error(`HTTP 상태 ${res.status}`);
-    return await res.json();
-  } catch (err) {
-    console.error("엑설사이즈 포인트 업데이트 실패 : ", err.message);
-    throw err;
+
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData.message || `HTTP 상태 ${res.status}`);
+    }
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(
+      `운동 기록 생성 (${journalId}) API 호출 실패:`,
+      error.message
+    );
+    throw error;
   }
 };
