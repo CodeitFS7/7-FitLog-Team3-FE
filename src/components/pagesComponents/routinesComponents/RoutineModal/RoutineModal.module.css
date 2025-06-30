@@ -1,8 +1,4 @@
 .modalOverlay {
-}
-/* routineModal.css */
-
-.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -16,217 +12,102 @@
 }
 
 .modalContainer {
-  display: flex;
-  width: 648px;
-  height: 861px;
-  padding: 40px 24px;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-radius: 8px;
-  border: 1px solid var(--But_-shadow, #464f5f);
-  background: #fff;
-  height: auto;
-}
-
-.modal-routine-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-}
-
-.modalHeader {
-  width: 600px;
-  height: 40px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modalTitle {
-  width: 600px;
-  height: 40px;
-  flex-shrink: 0;
-}
-
-.modal-title {
-  display: flex;
-  width: 120px;
-  height: 40px;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
-  color: var(--black-black_414141, #414141);
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-}
-
-.modalRoutineList {
-  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 20px;
-  flex-grow: 1;
-  overflow-y: auto;
 }
 
-.modalRoutineItem {
+.modalHeader {
+  text-align: center;
 }
 
-.modal-routine-list {
+.modalTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.modalRoutineList {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.modal-routine-item {
+.modalRoutineList::-webkit-scrollbar {
+  display: none;
+}
+
+.modalRoutineItem {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
   border-radius: 8px;
-  margin-bottom: 10px;
-  display: flex;
-  padding: 0px 44px 0px 100px;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
-  background: #fff;
-}
-
-.modal-routine-input {
-  width: 400px;
-  height: 54px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gray-gray_EEEEEE, #eee);
+  padding: 12px 15px;
+  gap: 10px;
 }
 
 .modalRoutineName {
-  font-size: 14px;
-  color: #5e5e5e;
+  flex-grow: 1;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  padding: 0;
 }
 
-.modal-routine-name {
-  color: var(--gray-gray_818181, #818181);
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+.modalRoutineName::placeholder {
+  color: #a0a0a0;
 }
 
 .modalDeleteButton {
   background: none;
   border: none;
+  color: #ff4d4f;
+  font-size: 20px;
   cursor: pointer;
-  border: none;
-  display: flex;
-  padding: 8px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 35px;
-  background: var(--pink-pink_FDE0E9, #fde0e9);
-}
-
-.modalDeleteButton svg {
-  color: #ff7a74;
-  font-size: 16px;
-}
-
-.modalInputItem {
-}
-
-.modal-delete-img {
-  width: 40px;
-  height: 40px;
-}
-
-.modal-bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.modal-add-form {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  flex-direction: column;
-  align-items: center;
-}
-
-.modal-add-input-area {
-  border-radius: 8px;
-  margin-bottom: 10px;
-  display: flex;
-  padding: 0px 44px 0px 100px;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
-  background: #fff;
-}
-
-.modalInput {
-}
-
-.modal-add-input {
-  width: 400px;
-  height: 54px;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gray-gray_EEEEEE, #eee);
-  border: none;
-
-  text-align: center;
-  color: var(--gray-gray_818181, #818181);
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  padding: 5px;
 }
 
-.modal-add-input::placeholder {
-  color: var(--gray-gray_818181, #818181);
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+.modalDeleteButton:disabled {
+  color: #cccccc;
+  cursor: not-allowed;
 }
 
-.add-button {
+.modalFooter {
   display: flex;
-  width: 400px;
-  height: 54px;
   flex-direction: column;
-  justify-content: center;
+  gap: 15px;
   align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: var(--gray-gray_EEEEEE, #eee);
 }
 
 .modalAddButton {
-  background: none;
-  border: none;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  padding: 12px;
   cursor: pointer;
-  margin-left: 8px;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modalAddButton img {
@@ -234,66 +115,62 @@
   height: 24px;
 }
 
-.modalFooter {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 24px;
+.modalAddButton:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+.modalFooterButtons {
+  display: flex;
+  width: 100%;
+  gap: 10px;
 }
 
 .modalCancel,
 .modalConfirm {
-  background: #fff;
-  border-width: 3px;
-  cursor: pointer;
-}
-
-.modal-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.cancel-btn,
-.submit-btn {
   flex: 1;
-  padding: 12px 0;
-  border-radius: 10px;
+  padding: 14px 20px;
   border: none;
-  font-weight: bold;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
-  display: flex;
-  width: 288px;
-  height: 58px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  fill: var(--brand-brand_5D6A7F, #5d6a7f);
-  color: #fff;
-  text-align: center;
-  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
-  font-family: Pretendard;
-  font-size: 18px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
 
 .modalCancel {
-  background-color: #eee;
-  color: #5e5e5e;
+  background-color: #ccc;
+  color: #555;
+}
+
+.modalCancel:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
 }
 
 .modalConfirm {
-  background-color: #59739c;
+  background-color: #5d6a7f;
   color: #fff;
 }
 
-.cancel-btn {
-  background: #eee;
-  color: #5e5e5e;
+.modalConfirm:disabled {
+  background-color: #5d6a7f;
+  cursor: not-allowed;
 }
 
-.submit-btn {
-  background: #59739c;
-  color: white;
+.loadingMessage,
+.errorMessage {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}
+
+.errorMessage {
+  color: #ff4d4f;
+}
+
+.inlineErrorMessage {
+  color: #ff4d4f;
+  font-size: 14px;
+  text-align: center;
+  margin-top: -10px;
 }

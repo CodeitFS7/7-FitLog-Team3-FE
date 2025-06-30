@@ -13,7 +13,7 @@ export const PATH = {
       return `/journals/${journalId}/updateJournal`;
     },
     todayRoutines(journalId) {
-      return `/journals/${journalId}/todayRoutines`;
+      return `/routines/${journalId}`;
     },
     exerciseLogs(journalId) {
       return `/journals/${journalId}/exerciseLogs`;
