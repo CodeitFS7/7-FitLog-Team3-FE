@@ -18,3 +18,19 @@ export const getExercisePointByJournalId = async (journalId) => {
     throw err;
   }
 };
+
+export const updateExercisePointByJournalId = async (journalId, newPoints) => {
+  const url = new URL(`${BASE_URL}/${journalId}`);
+  try {
+    const res = await fetch(url.toString(), {
+      method: "PUT", // PUT or PATCH
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ SumExercisePoint: newPoints }),
+    });
+    if (!res.ok) throw new Error(`HTTP 상태 ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.error("엑설사이즈 포인트 업데이트 실패 : ", err.message);
+    throw err;
+  }
+};
