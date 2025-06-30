@@ -18,7 +18,7 @@ export const getRoutinesByJournalId = async (journalId) => {
 //  루틴 추가하기
 export const createRoutine = async (journalId, newRoutine) => {
   try {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(`${BASE_URL}/${journalId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,18 +37,39 @@ export const createRoutine = async (journalId, newRoutine) => {
 };
 
 //  루틴 삭제하기
-export const deleteRoutine = async (routineId) => {
+export const deleteRoutine = async (routineId, journalId) => {
   try {
-    const res = await fetch(`${BASE_URL}/${routineId}`, {
+    const res = await fetch(`${BASE_URL}/${routineId}?journalId=${journalId}`, {
       method: "DELETE",
     });
 
     if (!res.ok) {
       throw new Error(`HTTP 상태 ${res.status}`);
     }
-    return await res.json();
+    return true;
   } catch (err) {
     console.error("루틴 삭제 실패:", err);
+    throw err;
+  }
+};
+
+export const updateRoutine = async (routineId, title) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${routineId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title: title }),
+    });
+    if (!res.ok) {
+      throw new Error(`HTTP 상태 ${res.status}`);
+    }
+    const responseBody = await res.json();
+    const { routine } = responseBody.result;
+    return routine;
+  } catch (err) {
+    console.error("루틴 수정 실패:", err);
     throw err;
   }
 };
