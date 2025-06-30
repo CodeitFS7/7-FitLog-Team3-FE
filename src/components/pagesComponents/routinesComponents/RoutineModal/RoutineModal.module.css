@@ -1,10 +1,14 @@
 .modalOverlay {
+}
+/* routineModal.css */
+
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,16 +17,22 @@
 
 .modalContainer {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   width: 648px;
   height: 861px;
   padding: 40px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
   border-radius: 8px;
-  border: 1px solid #464f5f;
+  border: 1px solid var(--But_-shadow, #464f5f);
   background: #fff;
-  font-family: "Pretendard";
-  box-sizing: border-box;
+  height: auto;
+}
+
+.modal-routine-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 24px;
 }
 
@@ -39,6 +49,9 @@
   width: 600px;
   height: 40px;
   flex-shrink: 0;
+}
+
+.modal-title {
   display: flex;
   width: 120px;
   height: 40px;
@@ -64,13 +77,34 @@
 }
 
 .modalRoutineItem {
+}
+
+.modal-routine-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 24px;
+}
+
+.modal-routine-item {
+  border-radius: 8px;
+  margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
+  padding: 0px 44px 0px 100px;
+  justify-content: flex-end;
   align-items: center;
-  width: 100%;
-  padding: 14px 20px;
-  background-color: #f8f8f8;
+  gap: 8px;
+  background: #fff;
+}
+
+.modal-routine-input {
+  width: 400px;
+  height: 54px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-gray_EEEEEE, #eee);
 }
 
 .modalRoutineName {
@@ -78,10 +112,28 @@
   color: #5e5e5e;
 }
 
+.modal-routine-name {
+  color: var(--gray-gray_818181, #818181);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
 .modalDeleteButton {
   background: none;
   border: none;
   cursor: pointer;
+  border: none;
+  display: flex;
+  padding: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 35px;
+  background: var(--pink-pink_FDE0E9, #fde0e9);
 }
 
 .modalDeleteButton svg {
@@ -90,14 +142,73 @@
 }
 
 .modalInputItem {
+}
+
+.modal-delete-img {
+  width: 40px;
+  height: 40px;
+}
+
+.modal-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal-add-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-add-input-area {
+  border-radius: 8px;
+  margin-bottom: 10px;
   display: flex;
   padding: 0px 44px 0px 100px;
   justify-content: flex-end;
   align-items: center;
   gap: 8px;
+  background: #fff;
 }
 
 .modalInput {
+}
+
+.modal-add-input {
+  width: 400px;
+  height: 54px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-gray_EEEEEE, #eee);
+  border: none;
+
+  text-align: center;
+  color: var(--gray-gray_818181, #818181);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.modal-add-input::placeholder {
+  color: var(--gray-gray_818181, #818181);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.add-button {
   display: flex;
   width: 400px;
   height: 54px;
@@ -105,6 +216,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
   border-radius: 10px;
   background: var(--gray-gray_EEEEEE, #eee);
 }
@@ -130,15 +242,40 @@
 
 .modalCancel,
 .modalConfirm {
+  background: #fff;
+  border-width: 3px;
+  cursor: pointer;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cancel-btn,
+.submit-btn {
   flex: 1;
   padding: 12px 0;
-  font-size: 14px;
   border-radius: 10px;
   border: none;
+  font-weight: bold;
   cursor: pointer;
-  text-align: center;
+  display: flex;
   width: 288px;
   height: 58px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  fill: var(--brand-brand_5D6A7F, #5d6a7f);
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .modalCancel {
@@ -149,4 +286,14 @@
 .modalConfirm {
   background-color: #59739c;
   color: #fff;
+}
+
+.cancel-btn {
+  background: #eee;
+  color: #5e5e5e;
+}
+
+.submit-btn {
+  background: #59739c;
+  color: white;
 }

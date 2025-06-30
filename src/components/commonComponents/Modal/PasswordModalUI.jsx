@@ -39,7 +39,7 @@ const PasswordModalUI = ({
           type="button"
           className={styles.closeButton}
           onClick={onClose}
-        ></button>
+        >나가기</button>
         <h2 className={styles.modalTitle}>{title}</h2>
         <p className={styles.modalDescription}>{description}</p>
 
