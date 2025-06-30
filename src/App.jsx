@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import JournalsPost from "./pages/JournalsPost/JournalsPost.jsx";
+import { JournalsPost } from "./pages/JournalsPost/index.jsx";
 import { MainPage } from "./pages/MainPage/MainPage.jsx";
 import { RoutinesDetail } from "./pages/RoutinesDetail/index.jsx";
 import { JournalDetail } from "./pages/JournalDetail/index.jsx";
 import { ExerciseLogs } from "./pages/ExerciseLogs.jsx";
+import { UpdateJournal } from "./pages/UpdateJournal/index.jsx";
 import { PATH } from "../utils/path.js";
 import "./css/base.css";
 import "./css/reset.css";
-import { EditJournal } from "./pages/EditJournal/index.jsx";
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
           element={<JournalDetail />}
         />
         <Route
-          path={PATH.journal.edit(":journalId")}
-          element={<EditJournal />}
+          path={PATH.journal.update(":journalId")}
+          element={<UpdateJournal />}
         />
         <Route
           // RoutinesDetail 컴포넌트명 todayRoutines로 변경 검토

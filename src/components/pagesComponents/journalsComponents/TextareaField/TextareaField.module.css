@@ -1,0 +1,68 @@
+/* .inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.label {
+  color: #414141;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.input,
+.textarea {
+  max-width: 100%;
+  border-radius: 15px;
+  border: 1px #dddddd solid;
+  padding-left: 20px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.input {
+  width: auto;
+  height: 48px;
+}
+
+.input[type="password"] {
+  padding-right: 40px;
+}
+
+.textarea {
+  width: auto;
+  height: 98px;
+  padding-top: 15px;
+  resize: none;
+} */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* label과 textarea 사이의 간격 */
+  position: relative;
+}
+
+.label {
+  color: #414141;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.textarea {
+  width: 100%; /* 부모에 꽉 차도록 변경 */
+  height: 98px; /* 고정 높이 */
+  padding: 15px 20px; /* 상하 15px, 좌우 20px 패딩 */
+  border-radius: 15px; /* 둥근 모서리 */
+  border: 1px #dddddd solid;
+  font-size: 16px;
+  box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+  color: #333;
+  transition: border-color 0.2s ease;
+  resize: none; /* 크기 조절 없음. (vertical로 변경하려면 여기 수정) */
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #59739c; /* 포커스 시 색상 변경 */
+}

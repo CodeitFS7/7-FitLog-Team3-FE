@@ -1,0 +1,57 @@
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* label과 inputWrapper 사이의 간격 */
+  position: relative;
+}
+
+.label {
+  color: #414141;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%; /* 부모에 꽉 차도록 */
+  height: 48px; /* 명확한 높이 */
+  border-radius: 15px; /* 최종적인 둥근 모서리 */
+  border: 1px #dddddd solid;
+  padding-left: 20px;
+  padding-right: 20px; /* 비밀번호 아이콘 공간 확보를 위해 기본 패딩 추가 */
+  font-size: 16px;
+  box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+  color: #333;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #59739c;
+}
+
+.input[type="password"] {
+  padding-right: 50px; /* eyeButton을 위한 충분한 패딩 */
+}
+
+.eyeButton {
+  position: absolute;
+  right: 15px; /* inputWrapper의 오른쪽 끝에서 15px */
+  top: 50%; /* inputWrapper의 세로 중앙 */
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  display: flex; /* 이미지가 중앙에 오도록 */
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* 인풋 위로 올라오도록 */
+}

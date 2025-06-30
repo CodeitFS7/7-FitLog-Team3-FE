@@ -1,0 +1,59 @@
+.formBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: fit-content;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  /* 폼 내부의 "운동일지 만들기" 제목 */
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 개별 필드 에러 메시지 스타일 (Message 컴포넌트의 errorMsg와는 별개) */
+.errorMsg {
+  color: #e53e3e; /* Tailwind red-500 */
+  font-size: 13px;
+  margin-top: -10px; /* InputField/TextareaField의 gap과 겹치지 않게 조정 */
+  margin-bottom: 5px; /* 다음 요소와의 간격 */
+  text-align: left; /* 필드 아래에 맞춰 왼쪽 정렬 */
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 15px;
+  background-color: #59739c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 20px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background-color: #4a638b;
+}
+
+.submitBtn:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+/* @media (max-width: 700px)에 대한 반응형 조정은 JournalsPost.module.css로 이동 */

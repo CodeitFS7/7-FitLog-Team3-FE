@@ -1,0 +1,96 @@
+/* .inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.label {
+  color: #414141;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.backgroundGrid {
+  width: 100%;
+  display: grid;
+  gap: 16px;
+  justify-content: center;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: repeat(2, 150px);
+  box-sizing: border-box;
+}
+@media (max-width: 700px) {
+  .formBox {
+    max-width: 350px;
+    padding: 24px 8px;
+  }
+  .backgroundGrid {
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(4, 150px);
+  }
+}
+
+.backgroundItem {
+  width: 150px;
+  height: 150px;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  justify-self: center;
+  background: transparent;
+  transition: border 0.2s;
+}
+.backgroundItem.selected {
+  border: 2px solid rgba(70, 79, 95, 0.7);
+} */
+/* src/components/commonComponents/BackgroundSelector/BackgroundSelector.module.css */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.label {
+  color: #414141;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.backgroundGrid {
+  width: 100%;
+  display: grid;
+  gap: 16px;
+  justify-content: center;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: repeat(2, 150px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+  /* 이 미디어 쿼리는 .backgroundGrid에 대한 것이어야 합니다. */
+  .backgroundGrid {
+    /* .formBox가 아닌 .backgroundGrid의 스타일 */
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(4, 150px);
+  }
+}
+
+.backgroundItem {
+  width: 150px;
+  height: 150px;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  justify-self: center;
+  background: transparent;
+  transition: border 0.2s;
+}
+.backgroundItem.selected {
+  border: 2px solid rgba(70, 79, 95, 0.7);
+}
