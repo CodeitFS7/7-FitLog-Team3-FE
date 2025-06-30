@@ -1,4 +1,4 @@
-    import styles from "./MakeButton.module.css";
+import styles from "./MakeButton.module.css";
 
 /**
  * @param {object} props - 컴포넌트 props
