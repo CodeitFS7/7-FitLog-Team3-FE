@@ -160,7 +160,7 @@ export const JournalDetailContent = ({ journalId }) => {
               className={styles.utilityLinkdelete}
               onClick={() => handleProtectedActionClick("delete")}
             >
-              스터디 삭제하기
+              운동일지 삭제하기
             </span>
           </div>
 
