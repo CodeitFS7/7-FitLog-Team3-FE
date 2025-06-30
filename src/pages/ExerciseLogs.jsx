@@ -1,14 +1,35 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import styles from '../css/ExerciseLogs.module.css';
+import { Header } from '../components/commonComponents/Header/index.jsx';
 import { PointDisplay } from '../components/pagesComponents/journalsComponents/PointDisplay/index.jsx';
 import { getExercisePointByJournalId, updateExercisePointByJournalId } from '../api/exerciseLogs/exerciseLogsApi';
+import IcPoint from '../assets/icons/ic_point.svg';
 
 // PointsSection 컴포넌트
-const PointsSection = ({ points }) => (
-  <div className={styles['points-section']}>
-    <p>현재까지 획득한 포인트</p>
-    <PointDisplay emoji="🌿" value={points} unit="P 획득" mode="light" />
+const PointsSection = ({ exercisePoints }) => (
+  <div style={{ marginBottom: 16 }}>
+    <p style={{ margin: 0, fontWeight: 500, fontSize: 15, color: '#444', marginBottom: 10 }}>
+      현재까지 획득한 포인트
+    </p>
+    <div
+      className={styles['points-section']}
+      style={{
+        border: '1px solid #e0e0e0',
+        borderRadius: 20,
+        padding: '8px 18px',
+        background: '#F0F4FA',
+        boxShadow: '0 2px 8px 0 rgba(0,0,0,0.03)',
+        display: 'flex',
+        alignItems: 'center',
+        width: 'fit-content',
+        gap: 8,
+      }}
+    >
+      <img src={IcPoint} alt="포인트" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />
+      <span style={{ fontSize: 14, fontWeight: 150, color: '#5D6A7F' }}>{exercisePoints}</span>
+      <span style={{ fontSize: 14, color: '#666' }}>P 획득</span>
+    </div>
   </div>
 );
 
@@ -43,7 +64,7 @@ const Controls = ({
       disabled={!isRunning}
       aria-label="일시정지"
     >
-      <span style={{ fontSize: '18px' }}>⏸</span>
+      <span style={{ fontSize: '22px' }}>⏸</span>
     </button>
     {time < 0 ? (
       <button
@@ -68,7 +89,7 @@ const Controls = ({
       disabled={isRunning}
       aria-label="리셋"
     >
-      <span style={{ fontSize: '18px' }}>&#8635;</span>
+      <span style={{ fontSize: '22px' }}>&#8635;</span>
     </button>
   </div>
 );
@@ -95,7 +116,7 @@ const Toast = ({ toast, successToast, getToastPoint }) => (
 );
 
 export const ExerciseLogs = () => {
-  const { journalId } = useParams();
+  const { journalId, nickname } = useParams();
   const [time, setTime] = useState(25 * 60);
   const [inputMinutes, setInputMinutes] = useState(25);
   const [inputSeconds, setInputSeconds] = useState(0);
@@ -108,7 +129,7 @@ export const ExerciseLogs = () => {
   const prevTimeRef = useRef();
   const [initialMinutes, setInitialMinutes] = useState(25);
   const [initialSeconds, setInitialSeconds] = useState(0);
-  const [points, setPoints] = useState(0); // 서버에서 불러온 값으로 초기화
+  const [exercisePoints, setExercisePoints] = useState(0);
 
   const navigate = useNavigate();
 
@@ -116,8 +137,8 @@ export const ExerciseLogs = () => {
   useEffect(() => {
     if (journalId) {
       getExercisePointByJournalId(journalId)
-        .then((exercisePoint) => setPoints(exercisePoint))
-        .catch(() => setPoints(0));
+        .then((exercisePoint) => setExercisePoints(exercisePoint))
+        .catch(() => setExercisePoints(0));
     }
   }, [journalId]);
 
@@ -198,7 +219,7 @@ export const ExerciseLogs = () => {
       setTimeout(() => setSuccessToast(false), 2000);
 
       // 클라이언트 포인트 증가
-      setPoints((prev) => {
+      setExercisePoints((prev) => {
         const newPoints = prev + getToastPoint();
         // 서버에 포인트 반영
         if (journalId) {
@@ -286,15 +307,18 @@ export const ExerciseLogs = () => {
     <div
       style={{
         minHeight: '100vh',
-        background: '#f7f7f5',
+        background: '#f0f4fa',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'flex-start',
       }}
     >
-      <div className={styles['app-container']}>
+      <div className={styles['app-container']} style={{ paddingTop: 78 }}>
+        <Header />
         <header className={styles.header}>
-          <h1>연우의 개발공장</h1>
+          <h1>
+            <span style={{ color: '#59739C' }}>{nickname}</span>의 운동일지
+            </h1>
           <div className={styles['header-right']}>
             <button
               className={styles['icon-button']}
@@ -311,7 +335,7 @@ export const ExerciseLogs = () => {
           </div>
         </header>
 
-        <PointsSection points={points} />
+        <PointsSection exercisePoints={exercisePoints} />
 
         <div className={styles['focus-timer-card']}>
           <p className={styles['card-title']}>오늘의 집중</p>
