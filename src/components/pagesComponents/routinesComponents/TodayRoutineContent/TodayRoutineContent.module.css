@@ -1,0 +1,74 @@
+.containerWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: 24px;
+  border-radius: 5px;
+  border: 1px solid #464f5f;
+  background: #fff;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.headerTitle {
+  color: #5e5e5e;
+  font-family: "Pretendard";
+  font-size: 32px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.nickname {
+  color: #59739c;
+  font-family: "Pretendard";
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.currentTime {
+  color: #5d6a7f;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.headerRight {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.headerBtn {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  height: fit-content;
+  padding: 16px 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(93, 106, 127, 0.5);
+  background: #fff;
+  color: #5d6a7f;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.arrowRightImg {
+  height: 24px;
+  width: 24px;
+}

@@ -1,0 +1,29 @@
+.routinesDetailContainer {
+  /* 기존 스타일 유지 또는 추가 */
+  width: 100%; /* 부모에 꽉 차도록 */
+  min-height: 100vh; /* 최소 높이 */
+  background-color: #f7f9fc; /* 배경색 */
+}
+.contentContainer {
+  margin-top: 94px; /* 헤더 높이만큼 마진 */
+  padding: 30px; /* 기존 상하 패딩 유지 */
+  /* 기본 (모바일 우선) 패딩 */
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+  width: 100%; /* 부모 너비에 맞춤 */
+}
+
+@media (min-width: 768px) {
+  .contentContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentContainer {
+    padding-left: 240px;
+    padding-right: 240px;
+  }
+}

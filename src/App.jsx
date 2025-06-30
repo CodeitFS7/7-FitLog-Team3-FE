@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import JournalsPost from "./pages/JournalsPost/JournalsPost.jsx";
 import { MainPage } from "./pages/MainPage/MainPage.jsx";
-import RoutinesDetail from "./pages/RoutinesDetail.jsx";
+import { RoutinesDetail } from "./pages/RoutinesDetail/index.jsx";
 import { JournalDetail } from "./pages/JournalDetail/index.jsx";
 import { ExerciseLogs } from "./pages/ExerciseLogs.jsx";
 import { PATH } from "../utils/path.js";
