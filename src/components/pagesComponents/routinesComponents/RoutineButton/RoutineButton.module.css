@@ -1,0 +1,33 @@
+.routineButton {
+  display: flex;
+  width: 400px;
+  height: 54px;
+  justify-content: center;
+  align-items: center;
+  color: #818181;
+  background-color: #eee;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.isCompleted {
+  display: flex;
+  width: 400px;
+  height: 54px;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #59739c;
+  border: 1px solid #5d6a7f;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}

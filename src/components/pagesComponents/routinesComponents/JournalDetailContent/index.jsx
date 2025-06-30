@@ -50,7 +50,6 @@ export const JournalDetailContent = ({ journalId }) => {
   }, [fetchJournalData]);
 
   const handleProtectedActionClick = useCallback((actionType, path = null) => {
-    console.log("버튼 클릭됨:", actionType, "path:", path);
     setActionToPerform(actionType);
     setTargetPath(path);
     setShowPasswordModal(true);

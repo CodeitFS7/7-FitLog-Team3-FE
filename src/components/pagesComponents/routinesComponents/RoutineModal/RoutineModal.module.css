@@ -1,4 +1,4 @@
-.modal-overlay {
+.modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.modal-container {
+.modalContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -26,7 +26,7 @@
   gap: 24px;
 }
 
-.modal-header {
+.modalHeader {
   width: 600px;
   height: 40px;
   flex-shrink: 0;
@@ -35,7 +35,7 @@
   justify-content: center;
 }
 
-.modal-title {
+.modalTitle {
   width: 600px;
   height: 40px;
   flex-shrink: 0;
@@ -54,7 +54,7 @@
   line-height: normal;
 }
 
-.modal-routine-list {
+.modalRoutineList {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@
   overflow-y: auto;
 }
 
-.modal-routine-item {
+.modalRoutineItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,23 +73,23 @@
   border-radius: 10px;
 }
 
-.modal-routine-name {
+.modalRoutineName {
   font-size: 14px;
   color: #5e5e5e;
 }
 
-.modal-delete-button {
+.modalDeleteButton {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.modal-delete-button svg {
+.modalDeleteButton svg {
   color: #ff7a74;
   font-size: 16px;
 }
 
-.modal-input-item {
+.modalInputItem {
   display: flex;
   padding: 0px 44px 0px 100px;
   justify-content: flex-end;
@@ -97,7 +97,7 @@
   gap: 8px;
 }
 
-.modal-input {
+.modalInput {
   display: flex;
   width: 400px;
   height: 54px;
@@ -109,7 +109,7 @@
   background: var(--gray-gray_EEEEEE, #eee);
 }
 
-.modal-add-button {
+.modalAddButton {
   background: none;
   border: none;
   cursor: pointer;
@@ -117,19 +117,19 @@
   padding: 0;
 }
 
-.modal-add-button img {
+.modalAddButton img {
   width: 24px;
   height: 24px;
 }
 
-.modal-footer {
+.modalFooter {
   display: inline-flex;
   align-items: flex-start;
   gap: 24px;
 }
 
-.modal-cancel,
-.modal-confirm {
+.modalCancel,
+.modalConfirm {
   flex: 1;
   padding: 12px 0;
   font-size: 14px;
@@ -141,12 +141,12 @@
   height: 58px;
 }
 
-.modal-cancel {
+.modalCancel {
   background-color: #eee;
   color: #5e5e5e;
 }
 
-.modal-confirm {
+.modalConfirm {
   background-color: #59739c;
   color: #fff;
 }
