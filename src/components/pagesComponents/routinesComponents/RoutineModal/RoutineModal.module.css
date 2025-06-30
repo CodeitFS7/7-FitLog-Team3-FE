@@ -1,4 +1,5 @@
 .modalOverlay {
+<<<<<<< HEAD
 }
 /* routineModal.css */
 
@@ -9,6 +10,14 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+=======
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+>>>>>>> origin/main
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +26,7 @@
 
 .modalContainer {
   display: flex;
+<<<<<<< HEAD
   width: 648px;
   height: 861px;
   padding: 40px 24px;
@@ -33,6 +43,18 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+=======
+  flex-direction: column;
+  align-items: flex-start;
+  width: 648px;
+  height: 861px;
+  padding: 40px 24px;
+  border-radius: 8px;
+  border: 1px solid #464f5f;
+  background: #fff;
+  font-family: "Pretendard";
+  box-sizing: border-box;
+>>>>>>> origin/main
   gap: 24px;
 }
 
@@ -49,9 +71,12 @@
   width: 600px;
   height: 40px;
   flex-shrink: 0;
+<<<<<<< HEAD
 }
 
 .modal-title {
+=======
+>>>>>>> origin/main
   display: flex;
   width: 120px;
   height: 40px;
@@ -77,6 +102,7 @@
 }
 
 .modalRoutineItem {
+<<<<<<< HEAD
 }
 
 .modal-routine-list {
@@ -105,6 +131,15 @@
   align-items: center;
   justify-content: center;
   background: var(--gray-gray_EEEEEE, #eee);
+=======
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 14px 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+>>>>>>> origin/main
 }
 
 .modalRoutineName {
@@ -112,6 +147,7 @@
   color: #5e5e5e;
 }
 
+<<<<<<< HEAD
 .modal-routine-name {
   color: var(--gray-gray_818181, #818181);
   text-align: center;
@@ -122,10 +158,13 @@
   line-height: normal;
 }
 
+=======
+>>>>>>> origin/main
 .modalDeleteButton {
   background: none;
   border: none;
   cursor: pointer;
+<<<<<<< HEAD
   border: none;
   display: flex;
   padding: 8px;
@@ -134,6 +173,8 @@
   gap: 10px;
   border-radius: 35px;
   background: var(--pink-pink_FDE0E9, #fde0e9);
+=======
+>>>>>>> origin/main
 }
 
 .modalDeleteButton svg {
@@ -142,6 +183,7 @@
 }
 
 .modalInputItem {
+<<<<<<< HEAD
 }
 
 .modal-delete-img {
@@ -168,11 +210,14 @@
 .modal-add-input-area {
   border-radius: 8px;
   margin-bottom: 10px;
+=======
+>>>>>>> origin/main
   display: flex;
   padding: 0px 44px 0px 100px;
   justify-content: flex-end;
   align-items: center;
   gap: 8px;
+<<<<<<< HEAD
   background: #fff;
 }
 
@@ -209,6 +254,11 @@
 }
 
 .add-button {
+=======
+}
+
+.modalInput {
+>>>>>>> origin/main
   display: flex;
   width: 400px;
   height: 54px;
@@ -216,7 +266,10 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+<<<<<<< HEAD
   flex-shrink: 0;
+=======
+>>>>>>> origin/main
   border-radius: 10px;
   background: var(--gray-gray_EEEEEE, #eee);
 }
@@ -242,6 +295,7 @@
 
 .modalCancel,
 .modalConfirm {
+<<<<<<< HEAD
   background: #fff;
   border-width: 3px;
   cursor: pointer;
@@ -276,6 +330,17 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+=======
+  flex: 1;
+  padding: 12px 0;
+  font-size: 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  width: 288px;
+  height: 58px;
+>>>>>>> origin/main
 }
 
 .modalCancel {
@@ -287,6 +352,7 @@
   background-color: #59739c;
   color: #fff;
 }
+<<<<<<< HEAD
 
 .cancel-btn {
   background: #eee;
@@ -297,3 +363,5 @@
   background: #59739c;
   color: white;
 }
+=======
+>>>>>>> origin/main

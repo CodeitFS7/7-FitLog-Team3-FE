@@ -32,6 +32,8 @@ function App() {
           path={PATH.journal.exerciseLogs(":journalId")}
           element={<ExerciseLogs />}
         />
+        <Route path="/routines/:journalId" element={<RoutinesDetail />} />
+        <Route path="/exerciseLogs" element={<ExerciseLogs />} />
       </Routes>
     </BrowserRouter>
   );

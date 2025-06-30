@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./RoutineModal.module.css";
 import { FaTrashAlt } from "react-icons/fa";
 import plusIcon from "../../../../assets/icons/ic_plus.svg";
+<<<<<<< HEAD
 // import React, { useState } from "react";
 // import "./routineModal.css";
 // import plusIcon from "../../../assets/icons/ic_plus.svg";
@@ -35,17 +36,27 @@ import plusIcon from "../../../../assets/icons/ic_plus.svg";
 //     // 서버 통신 로직은 추후 구현 예정
 //     onClose();
 //   };
+=======
+>>>>>>> origin/main
 
 const RoutineModal = ({
   routines,
   newRoutine,
   onChange,
+<<<<<<< HEAD
   onAdd,
   onDelete,
   onClose,
   onSubmit,
 }) => {
   //const RoutineModal = ({... 이 부분은 제가 임시로 작성한 부분입니다.
+=======
+  onDelete,
+  onAdd,
+  onClose,
+  onSubmit,
+}) => {
+>>>>>>> origin/main
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContainer}>
@@ -89,6 +100,7 @@ const RoutineModal = ({
     </div>
   );
 };
+<<<<<<< HEAD
 //     <div className="modal-overlay">
 //       <div className="modal-routine-wrapper">
 //         <div className="modal-container">
@@ -142,5 +154,7 @@ const RoutineModal = ({
 //     </div>
 //   );
 // };
+=======
+>>>>>>> origin/main
 
 export default RoutineModal;
