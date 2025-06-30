@@ -1,16 +1,15 @@
 .formBox {
   display: flex;
+  padding: 30px;
   flex-direction: column;
   gap: 20px;
   width: fit-content;
-  padding: 20px;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .title {
-  /* 폼 내부의 "운동일지 만들기" 제목 */
   font-size: 28px;
   font-weight: bold;
   color: #333;
@@ -53,4 +52,15 @@
 .submitBtn:disabled {
   background-color: #a0aec0;
   cursor: not-allowed;
+}
+
+.loadingMessage,
+.errorMessage {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  color: #666;
+}
+.errorMessage {
+  color: #e53e3e;
 }
