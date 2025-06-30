@@ -246,7 +246,6 @@ export const ExerciseLogs = () => {
       setToast(true); // "타이머가 일시 정지되었습니다" 토스트 표시
       setTimeout(() => {
         setToast(false); // 토스트 숨김
-        resetTimer(); // 타이머 초기화
       }, 1800); // 토스트 표시 시간
       return; // API 요청 없이 함수 종료
     }
