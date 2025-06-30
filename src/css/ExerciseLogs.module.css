@@ -147,7 +147,7 @@
 }
 
 .start-button {
-    background-color: #8bc34a;
+    background-color: #5d6a7f;
     color: white;
     font-size: 24px;
     font-weight: bold;
@@ -366,4 +366,34 @@
     font-size: 18px;
     margin-right: 4px;
     vertical-align: middle;
+}
+.exerciseLogsBg {
+  min-height: 100vh;
+  background: #f7f7f5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.icon18 {
+  font-size: 18px;
+}
+
+.icon24 {
+  font-size: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.icon22 {
+  font-size: 22px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.toastPoint {
+  margin-left: 18px;
+  font-size: 18px;
+  color: #388e3c;
+  font-weight: 700;
 }
