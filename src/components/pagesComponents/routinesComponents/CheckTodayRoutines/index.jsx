@@ -4,53 +4,52 @@ import {
   updateCheckRoutineStatus,
 } from "../../../../api/routines/routinesApi.js";
 import { RoutineButton } from "../RoutineButton/index.jsx";
+import RoutineModal from "../RoutineModal/index.jsx"; // ← 진짜 모달 컴포넌트 import
 import styles from "./CheckTodayRoutines.module.css";
 
 export const CheckTodayRoutines = ({ journalId }) => {
   const [routines, setRoutines] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getDayKey = (date) => {
     const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     return days[date.getDay()];
   };
 
+  const fetchRoutines = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const today = new Date();
+      const todayFormatted = today.toISOString().split("T")[0];
+      const fetchedRoutines = await getWeeklyRoutinesStatus(
+        journalId,
+        todayFormatted
+      );
+
+      const currentDayKey = getDayKey(today);
+      const processedRoutines = fetchedRoutines.map((routine) => ({
+        id: routine.id,
+        title: routine.title,
+        isCompleted:
+          (routine.weeklyCompletion &&
+            routine.weeklyCompletion[currentDayKey]) ||
+          false,
+        weeklyCompletion: routine.weeklyCompletion,
+      }));
+
+      setRoutines(processedRoutines);
+    } catch (err) {
+      setError(err.message);
+      setRoutines([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchRoutines = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const today = new Date();
-        const todayFormatted = today.toISOString().split("T")[0];
-
-        // 주간 루틴 상태를 가져오는 API 호출
-        const fetchedRoutines = await getWeeklyRoutinesStatus(
-          journalId,
-          todayFormatted
-        );
-
-        const currentDayKey = getDayKey(new Date());
-        const processedRoutines = fetchedRoutines.map((routine) => ({
-          id: routine.id,
-          title: routine.title,
-
-          isCompleted:
-            (routine.weeklyCompletion &&
-              routine.weeklyCompletion[currentDayKey]) ||
-            false,
-          weeklyCompletion: routine.weeklyCompletion,
-        }));
-
-        setRoutines(processedRoutines);
-      } catch (err) {
-        setError(err.message);
-        setRoutines([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     if (journalId) {
       fetchRoutines();
     } else {
@@ -101,12 +100,21 @@ export const CheckTodayRoutines = ({ journalId }) => {
     }
   };
 
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => {
+    setIsModalOpen(false);
+    fetchRoutines(); // 모달 닫을 때 다시 불러오기
+  };
+
   return (
     <div className={styles.todayRoutineContainer}>
       <div className={styles.titleAndEditBtn}>
         <h3 className={styles.title}>오늘의 루틴</h3>
-        <button className={styles.EditBtn}>목록 수정</button>
+        <button className={styles.EditBtn} onClick={openModal}>
+          목록 수정
+        </button>
       </div>
+
       <div className={styles.todayRoutineListContainer}>
         {loading && (
           <p className={styles.loadingMessage}>루틴 목록을 불러오는 중...</p>
@@ -129,6 +137,14 @@ export const CheckTodayRoutines = ({ journalId }) => {
             </RoutineButton>
           ))}
       </div>
+
+      {isModalOpen && (
+        <RoutineModal
+          journalId={journalId}
+          initialRoutines={routines}
+          onClose={closeModal}
+        />
+      )}
     </div>
   );
 };
