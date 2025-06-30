@@ -144,3 +144,29 @@ export const createJournal = async (journalData) => {
     throw err;
   }
 };
+
+export const updateJournal = async (journalId, journalData) => {
+  // journalId를 인자로 추가
+  const url = `${BASE_URL}/${journalId}`;
+  try {
+    const res = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(journalData),
+    });
+
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(
+        errorData.message || `HTTP 상태 ${res.status}: 저널 업데이트 실패`
+      );
+    }
+    const responseData = await res.json();
+    return responseData;
+  } catch (err) {
+    console.error("저널 업데이트 실패:", err);
+    throw err;
+  }
+};

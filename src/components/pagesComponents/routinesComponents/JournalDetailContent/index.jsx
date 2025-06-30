@@ -73,7 +73,7 @@ export const JournalDetailContent = ({ journalId }) => {
 
     try {
       if (actionToPerform === "edit") {
-        navigate(PATH.journal.edit(journalId));
+        navigate(PATH.journal.update(journalId));
       } else if (actionToPerform === "delete") {
         const confirmDelete = window.confirm(
           "정말로 이 운동일지를 삭제하시겠습니까?"
