@@ -121,3 +121,26 @@ export const verifyJournalPassword = async ({ journalId, password }) => {
     throw err;
   }
 };
+
+export const createJournal = async (journalData) => {
+  const url = BASE_URL; // /journals
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(journalData), // 요청 바디는 JSON 문자열로
+    });
+
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData.message || `HTTP 상태 ${res.status}`);
+    }
+    const responseData = await res.json();
+    return responseData;
+  } catch (err) {
+    console.error("저널 생성 실패:", err);
+    throw err;
+  }
+};
