@@ -1,17 +1,15 @@
-@import url("../css/base.css");
-
-.routine-wrapper {
+.routineWrapper {
   padding: 139px 312px 100px 360px;
 }
 
-.routine-header {
+.routineHeader {
   display: flex;
   width: 1168px;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
 }
-.routine-inner {
+.routineInner {
   display: inline-flex;
   padding: 40px;
   flex-direction: column;
@@ -22,14 +20,14 @@
   background: #fff;
 }
 
-.routine-inner2 {
+.routineInner2 {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 722px;
 }
 
-.routine-box {
+.routineBox {
   display: flex;
   padding: 40px 24px;
   flex-direction: column;
@@ -40,7 +38,7 @@
   background: #fff;
 }
 
-.routine-content {
+.routineContent {
   display: flex;
   padding: 40px 24px;
   flex-direction: column;
@@ -48,11 +46,11 @@
   gap: 10px;
 }
 
-.routine-title {
+.routineTitle {
   white-space: nowrap; /* 줄바꿈 방지 */
 }
 
-.routine-box-header {
+.routineBoxHeader {
   display: flex;
   width: 1120px;
   height: 29px;
@@ -63,7 +61,7 @@
   flex-shrink: 0;
 }
 
-.routine-nickname {
+.routineNickname {
   color: var(--Nickname, #59739c);
   font-family: Pretendard;
   font-size: 32px;
@@ -72,7 +70,7 @@
   line-height: normal;
 }
 
-.routine-label {
+.routineLabel {
   color: #5e5e5e;
   font-family: Pretendard;
   font-size: 32px;
@@ -81,13 +79,13 @@
   line-height: normal;
 }
 
-.routine-header-btns {
+.routineHeaderBtns {
   display: flex;
   align-items: flex-start;
   gap: 16px;
 }
 
-.routine-btn1 {
+.routineBtn1 {
   width: 144px;
   height: 48px;
   flex-shrink: 0;
@@ -100,7 +98,7 @@
   cursor: pointer;
 }
 
-.routine-btn2 {
+.routineBtn2 {
   width: 82px;
   height: 48px;
   flex-shrink: 0;
@@ -113,7 +111,7 @@
   cursor: pointer;
 }
 
-.today-routine {
+.todayRoutine {
   color: var(--black-black_414141, #414141);
   text-align: right;
   font-family: Pretendard;
@@ -123,7 +121,7 @@
   line-height: normal;
 }
 
-.routine-edit {
+.routineEdit {
   color: var(--gray-gray_818181, #818181);
   text-align: center;
   font-family: Pretendard;
@@ -134,7 +132,7 @@
   cursor: pointer;
 }
 
-.routine-time {
+.routineTime {
   color: var(--brand-brand_5D6A7F, #5d6a7f);
   font-family: Pretendard;
   font-size: 16px;
@@ -143,7 +141,7 @@
   line-height: normal;
 }
 
-.routine-list {
+.routineList {
   display: flex;
   width: 1120px;
   height: 498px;
@@ -151,7 +149,7 @@
   align-items: center;
 }
 
-.empty-massage {
+.emptyMassage {
   color: var(--gray-gray_818181, #818181);
   text-align: center;
   font-family: Pretendard;
@@ -161,13 +159,13 @@
   line-height: normal;
 }
 
-.routine-title {
+.routineTitle {
   font-size: 20px;
   font-weight: bold;
   color: #000;
 }
 
-.routine-item {
+.routineItem {
   width: 100%;
   padding: 14px 0;
   text-align: center;
@@ -180,7 +178,7 @@
   border: none;
 }
 
-.routine-item.active {
+.routineItem.active {
   background-color: #59739c;
   color: #fff;
 }
@@ -193,7 +191,7 @@
   gap: 12px;
 }
 
-.nav-button {
+.navButton {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -207,7 +205,7 @@
   cursor: pointer;
 }
 
-.nav-button img {
+.navButton img {
   width: 12px;
   height: 12px;
 }

@@ -106,7 +106,7 @@ export const verifyJournalPassword = async ({ journalId, password }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ password }), // ✅ 실제 입력된 비밀번호 전송
+      body: JSON.stringify({ password }),
     });
 
     if (!res.ok) {
@@ -115,7 +115,7 @@ export const verifyJournalPassword = async ({ journalId, password }) => {
     }
 
     const data = await res.json();
-    return data.success; // ✅ true 또는 false를 반환한다고 가정
+    return data.success;
   } catch (err) {
     console.error("비밀번호 검증 실패: ", err.message);
     throw err;

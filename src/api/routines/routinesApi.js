@@ -7,7 +7,8 @@ export const getRoutinesByJournalId = async (journalId) => {
     if (!res.ok) {
       throw new Error(`HTTP 상태 ${res.status}`);
     }
-    return await res.json();
+    const { data: routines } = await res.json();
+    return routines;
   } catch (err) {
     console.error("루틴 목록 가져오기 실패:", err);
     throw err;
@@ -71,6 +72,44 @@ export const getWeeklyRoutinesStatus = async (journalId, dateString) => {
     return data.routines;
   } catch (err) {
     console.error("루틴 체크리스트 조회 실패 : ", err.message);
+    throw err;
+  }
+};
+
+// 루틴 체크하기
+export const updateCheckRoutineStatus = async (routineId, journalId, date) => {
+  const url = new URL(`${BASE_URL}/${routineId}/updateCheckRoutine`);
+  url.searchParams.append("journalId", journalId);
+  try {
+    const requestBody = {
+      date: date,
+    };
+
+    console.log(`API POST 요청: 루틴 상태 업데이트 - ${url.toString()}`);
+    console.log("요청 바디:", requestBody);
+
+    const res = await fetch(url.toString(), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    });
+
+    if (!res.ok) {
+      const errorData = await res
+        .json()
+        .catch(() => ({ message: "알 수 없는 서버 오류" }));
+      throw new Error(
+        `HTTP 상태 ${res.status}: ${errorData.message || "서버 응답 오류"}`
+      );
+    }
+
+    const responseData = await res.json();
+    console.log("루틴 상태 업데이트 성공 응답:", responseData);
+    return responseData;
+  } catch (err) {
+    console.error("루틴 상태 업데이트 실패:", err.message);
     throw err;
   }
 };

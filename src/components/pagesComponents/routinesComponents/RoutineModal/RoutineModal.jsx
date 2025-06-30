@@ -1,7 +1,7 @@
 import React from "react";
-import "../routinesComponents/routineModal.css";
+import styles from "./RoutineModal.module.css";
 import { FaTrashAlt } from "react-icons/fa";
-import plusIcon from "../../../assets/icons/ic_plus.svg";
+import plusIcon from "../../../../assets/icons/ic_plus.svg";
 
 const RoutineModal = ({
   routines,
@@ -13,24 +13,24 @@ const RoutineModal = ({
   onSubmit,
 }) => {
   return (
-    <div className="modal-overlay">
-      <div className="modal-container">
-        <div className="modal-header">
-          <h2 className="modal-title">습관 목록</h2>
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContainer}>
+        <div className={styles.modalHeader}>
+          <h2 className={styles.modalTitle}>습관 목록</h2>
         </div>
-        <ul className="modal-routine-list">
+        <ul className={styles.modalRoutineList}>
           {routines.map((routine) => (
-            <li key={routine.routineId} className="modal-routine-item">
-              <span className="modal-routine-name">{routine.name}</span>
+            <li key={routine.routineId} className={styles.modalRoutineItem}>
+              <span className={styles.modalRoutineName}>{routine.name}</span>
               <button
-                className="modal-delete-button"
+                className={styles.modalDeleteButton}
                 onClick={() => onDelete(routine.routineId)}
               >
                 <FaTrashAlt />
               </button>
             </li>
           ))}
-          <li className="modal-input-item">
+          <li className={styles.modalInputItem}>
             <input
               type="text"
               value={newRoutine}
@@ -38,16 +38,16 @@ const RoutineModal = ({
               placeholder="습관을 입력하세요"
               className="modal-input"
             />
-            <button onClick={onAdd} className="modal-add-button">
+            <button onClick={onAdd} className={styles.modalAddButton}>
               <img src={plusIcon} alt="추가" />
             </button>
           </li>
         </ul>
-        <div className="modal-footer">
-          <button className="modal-cancel" onClick={onClose}>
+        <div className={styles.modalFooter}>
+          <button className={styles.modalCancel} onClick={onClose}>
             취소
           </button>
-          <button className="modal-confirm" onClick={onSubmit}>
+          <button className={styles.modalConfirm} onClick={onSubmit}>
             수정 완료
           </button>
         </div>
