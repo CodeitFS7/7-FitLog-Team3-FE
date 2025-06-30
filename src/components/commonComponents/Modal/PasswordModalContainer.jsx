@@ -22,14 +22,14 @@ const MODAL_TEXT_MAP = {
     confirmButtonText: "운동일지 삭제하기",
   },
   navRoutines: {
-    title: "운동 습관으로 이동",
+    title: "운동 루틴으로 이동",
     description: " 비밀번호를 입력하세요.",
-    confirmButtonText: "오늘의 습관으로 가기",
+    confirmButtonText: "오늘의 루틴 체크하기",
   },
   navExerciseLog: {
     title: "운동 기록으로 이동",
     description: " 비밀번호를 입력하세요.",
-    confirmButtonText: "오늘의 집중으로 가기",
+    confirmButtonText: "오늘의 운동 기록하기",
   },
   default: {
     title: "비밀번호 확인",

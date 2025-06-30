@@ -36,6 +36,7 @@ function App() {
         <Route path="/exerciseLogs" element={<ExerciseLogs />} />
       </Routes>
     </BrowserRouter>
+
   );
 }
 
